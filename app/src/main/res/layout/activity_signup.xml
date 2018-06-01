@@ -147,8 +147,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginLeft="60dp"
+
         android:layout_marginTop="440dp"
+        android:layout_centerHorizontal="true"
         android:background="@android:color/holo_blue_dark"
         android:text="Log in with facebook"
         android:textSize="24sp" />

@@ -14,7 +14,7 @@ public class FirstAPPpage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_apppage);
+        setContentView(R.layout.activity_today_reports);
 
 
         //gomenu=(Button)findViewById(R.id.gotomenu);

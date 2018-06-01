@@ -30,8 +30,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
 
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="270dp"
         android:orientation="horizontal">
 
@@ -40,15 +40,18 @@
             android:layout_width="75dp"
             android:layout_height="wrap_content"
 
+            android:layout_weight="1"
             android:padding="15dp"
-            android:paddingLeft="20dp"
+
             android:paddingRight="20dp"
+            android:textSize="14sp"
+
             android:text="Time:"
-            android:textSize="18sp" />
+             />
 
         <TextView
             android:id="@+id/trip1"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
 
             android:paddingLeft="20dp"
@@ -59,7 +62,7 @@
 
         <TextView
             android:id="@+id/trip2"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
 
             android:paddingLeft="20dp"
@@ -70,7 +73,7 @@
 
         <TextView
             android:id="@+id/trip3"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
 
             android:paddingLeft="20dp"
@@ -84,7 +87,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginLeft="20dp"
+        android:gravity="center"
+
         android:layout_marginTop="330dp"
         android:orientation="horizontal">
 
@@ -93,15 +97,18 @@
             android:layout_width="75dp"
             android:layout_height="wrap_content"
 
+            android:layout_weight="1"
             android:padding="15dp"
-            android:paddingLeft="20dp"
+
             android:paddingRight="20dp"
+            android:textSize="14sp"
+
             android:text="Kaki:"
-            android:textSize="18sp" />
+            />
 
         <TextView
             android:id="@+id/yesno1"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
 
             android:paddingLeft="16dp"
@@ -112,7 +119,7 @@
 
         <TextView
             android:id="@+id/yesno2"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
 
             android:paddingLeft="16dp"
@@ -123,7 +130,7 @@
 
         <TextView
             android:id="@+id/yesno3"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
 
             android:paddingLeft="16dp"
@@ -138,7 +145,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginLeft="20dp"
+        android:gravity="center"
+
         android:layout_marginTop="390dp"
         android:orientation="horizontal">
 
@@ -149,18 +157,20 @@
 
             android:layout_weight="1"
             android:padding="15dp"
-            android:paddingLeft="20dp"
+
             android:paddingRight="20dp"
+            android:textSize="14sp"
+
             android:text="By:"
-            android:textSize="18sp" />
+            />
 
         <TextView
             android:id="@+id/by1"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:paddingLeft="20dp"
+            android:paddingLeft="15dp"
             android:paddingRight="20dp"
             android:text="name"
             android:textColor="@android:color/black"
@@ -168,11 +178,11 @@
 
         <TextView
             android:id="@+id/by2"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:paddingLeft="20dp"
+            android:paddingLeft="15dp"
             android:paddingRight="20dp"
             android:text="name"
             android:textColor="@android:color/black"
@@ -180,11 +190,11 @@
 
         <TextView
             android:id="@+id/by3"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:paddingLeft="20dp"
+            android:paddingLeft="15dp"
             android:paddingRight="20dp"
             android:text="name"
             android:textColor="@android:color/black"
