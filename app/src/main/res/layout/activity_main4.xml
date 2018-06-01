@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    tools:context=".Main4Activity">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="15dp"
+        android:text="Welcome + name"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/tripReport"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="90dp"
+        android:text="Report a trip" />
+
+    <Button
+        android:id="@+id/seeSch"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="230dp"
+        android:text="See scheduale" />
+
+    <Button
+        android:id="@+id/dogGarden"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="160dp"
+        android:text="Dog's Garden" />
+
+    <Button
+        android:id="@+id/buyFood"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="300dp"
+        android:text="Buy food" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="300dp"
+        app:srcCompat="@drawable/bowl" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="90dp"
+        app:srcCompat="@drawable/dog1" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/dogbone" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="230dp"
+        app:srcCompat="@drawable/pawdog" />
+
+</RelativeLayout>

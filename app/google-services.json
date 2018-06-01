@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "559107728764",
+    "firebase_url": "https://mydog-f6d6f.firebaseio.com",
+    "project_id": "mydog-f6d6f",
+    "storage_bucket": "mydog-f6d6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559107728764:android:13c3c6a65bcbec53",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "559107728764-ka2pb6n0trci3cj7uhqnvg8oqu9s7mmk.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "559107728764-ka2pb6n0trci3cj7uhqnvg8oqu9s7mmk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlciILCFnl3HT2Yf8gZBkwJW53Z4LTJYA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

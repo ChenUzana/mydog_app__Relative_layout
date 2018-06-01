@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    tools:context=".FirstAPPpage">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="207dp"
+
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/hoy" />
+
+    <TextView
+        android:id="@+id/todayDateHere"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="230dp"
+
+        android:gravity="center"
+        android:text="Today's date"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="270dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/timeHead"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+
+            android:padding="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Time:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/trip1"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="trip1"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/trip2"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="trip2"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/trip3"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="trip3"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="330dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/KakiHead"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+
+            android:padding="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Kaki:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/yesno1"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="yes/no"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/yesno2"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="yes/no"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/yesno3"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="yes/no"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="390dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ByHead"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:padding="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="By:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/by1"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="name"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/by2"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="name"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/by3"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="name"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/gotomenu"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+
+
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="450dp"
+        android:gravity="center"
+        android:text="@string/gotomenu"
+        android:textSize="14sp" />
+
+</RelativeLayout>
