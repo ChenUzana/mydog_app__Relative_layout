@@ -6,8 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class logIn extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
                 sedt.putString("textvalue",t1.getText().toString());
                 sedt.commit();
 
-               // Toast.makeText(MainActivity.this,"u clicked :"+t1.getText().toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(logIn.this,"u clicked :"+t1.getText().toString(),Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(MainActivity.this, takephoto.class);
+                Intent intent = new Intent(logIn.this, takephoto.class);
                 startActivity(intent);
                // finish();
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, Main4Activity.class);
+                Intent intent = new Intent(logIn.this, welcomeMenu.class);
 
                 startActivity(intent);
                 // finish();
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, Signup.class);
+                Intent intent = new Intent(logIn.this, Signup.class);
 
                 startActivity(intent);
                 // finish();
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, Signup.class);
+                Intent intent = new Intent(logIn.this, Signup.class);
                 startActivity(intent);
                 // finish();
             }
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, TripReport.class);
+                Intent intent = new Intent(logIn.this, TripReport.class);
                 startActivity(intent);
                 // finish();
             }
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, TodayReport.class);
+                Intent intent = new Intent(logIn.this, TodayReport.class);
                 startActivity(intent);
                 // finish();
             }
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, Main4Activity.class);
+                Intent intent = new Intent(logIn.this, welcomeMenu.class);
                 startActivity(intent);
                 // finish();
             }

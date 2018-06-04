@@ -33,7 +33,7 @@ public class takephoto extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(takephoto.this, MainActivity.class);
+                Intent intent = new Intent(takephoto.this, logIn.class);
                 startActivity(intent);
                 finish();
             }

@@ -5,15 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
-    tools:context=".Main4Activity">
+    tools:context=".welcomeMenu">
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginLeft="95dp"
+        android:layout_centerHorizontal="true"
+
         android:layout_marginTop="15dp"
+
         android:text="Welcome + name"
         android:textSize="24sp" />
 
@@ -24,33 +26,71 @@
 
         android:layout_marginLeft="80dp"
         android:layout_marginTop="90dp"
+        android:background="#66ffff"
         android:text="Report a trip" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignTop="@+id/tripReport"
+        android:layout_toRightOf="@+id/tripReport"
+
+        app:srcCompat="@drawable/dog1" />
+
+    <Button
+        android:id="@+id/dogGardenB"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/tripReport"
+
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="16dp"
+        android:background="#80ff80"
+        android:text="Dog's Garden" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignTop="@+id/dogGardenB"
+        android:layout_toRightOf="@+id/dogGardenB"
+
+        app:srcCompat="@drawable/dogbone" />
 
     <Button
         android:id="@+id/seeSch"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
 
+        android:layout_below="@id/dogGardenB"
+
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="16dp"
         android:text="See scheduale" />
 
-    <Button
-        android:id="@+id/dogGarden"
-        android:layout_width="140dp"
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="160dp"
-        android:text="Dog's Garden" />
+        android:layout_alignTop="@+id/seeSch"
+        android:layout_toRightOf="@+id/seeSch"
+
+        app:srcCompat="@drawable/pawdog" />
 
     <Button
         android:id="@+id/buyFood"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
 
+        android:layout_below="@id/seeSch"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="16dp"
+        android:background="#e48d732a"
         android:text="Buy food" />
 
     <ImageView
@@ -58,35 +98,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="300dp"
+        android:layout_alignTop="@+id/buyFood"
+        android:layout_toRightOf="@+id/buyFood"
         app:srcCompat="@drawable/bowl" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="90dp"
-        app:srcCompat="@drawable/dog1" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="160dp"
-        app:srcCompat="@drawable/dogbone" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="230dp"
-        app:srcCompat="@drawable/pawdog" />
 
 </RelativeLayout>

@@ -3,6 +3,7 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity3"
+            android:name=".myDogBlue"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,11 +22,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".takephoto" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Main4Activity" />
+        <activity android:name=".logIn" />
+        <activity android:name=".welcomeMenu" />
         <activity android:name=".Signup" />
         <activity android:name=".TodayReport" />
-        <activity android:name=".TripReport"></activity>
+        <activity android:name=".TripReport" />
+        <activity android:name=".DogsGarden"></activity>
     </application>
 
 </manifest>

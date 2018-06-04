@@ -24,7 +24,7 @@ public class TodayReport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(TodayReport.this, MainActivity.class);
+                Intent intent = new Intent(TodayReport.this, logIn.class);
                 startActivity(intent);
                 // finish();
             }

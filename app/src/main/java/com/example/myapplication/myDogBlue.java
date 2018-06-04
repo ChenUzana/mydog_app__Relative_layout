@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity3 extends AppCompatActivity {
+public class myDogBlue extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class MainActivity3 extends AppCompatActivity {
                 try {
                     synchronized (this) {
                         wait(2000);
-                        Intent intent = new Intent (MainActivity3.this, MainActivity.class);
+                        Intent intent = new Intent (myDogBlue.this, logIn.class);
                         startActivity(intent);
                         finish();
 

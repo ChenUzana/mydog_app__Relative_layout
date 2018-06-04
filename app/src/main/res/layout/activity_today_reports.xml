@@ -20,121 +20,120 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="10dp"
 
         android:gravity="center"
         android:text="Today's date"
+        android:layout_below="@+id/imageView"
+
         android:textColor="@android:color/holo_red_light"
         android:textSize="24sp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/relA"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
 
-        android:layout_marginTop="270dp"
-        android:orientation="horizontal">
+        android:layout_below="@+id/todayDateHere"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        >
 
         <TextView
             android:id="@+id/timeHead"
-            android:layout_width="75dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:padding="15dp"
 
-            android:paddingRight="20dp"
-            android:textSize="14sp"
-
+            android:textSize="18sp"
             android:text="Time:"
              />
 
         <TextView
             android:id="@+id/trip1"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:layout_weight="1"
+
             android:text="trip1"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/trip2"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:layout_weight="1"
+
             android:text="trip2"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/trip3"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:layout_weight="1"
+
             android:text="trip3"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/relB"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:gravity="center"
+        android:layout_below="@id/relA"
 
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/KakiHead"
-            android:layout_width="75dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:padding="15dp"
 
-            android:paddingRight="20dp"
-            android:textSize="14sp"
-
+            android:textSize="18sp"
             android:text="Kaki:"
-            />
+             />
 
         <TextView
             android:id="@+id/yesno1"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:layout_weight="1"
+
             android:text="yes/no"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/yesno2"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:layout_weight="1"
+
             android:text="yes/no"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/yesno3"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:layout_weight="1"
+
             android:text="yes/no"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
@@ -142,60 +141,55 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/relC"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:gravity="center"
+        android:layout_below="@id/relB"
 
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/ByHead"
-            android:layout_width="75dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:padding="15dp"
 
-            android:paddingRight="20dp"
-            android:textSize="14sp"
-
+            android:textSize="18sp"
             android:text="By:"
             />
 
         <TextView
             android:id="@+id/by1"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:paddingLeft="15dp"
-            android:paddingRight="20dp"
+
             android:text="name"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/by2"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:paddingLeft="15dp"
-            android:paddingRight="20dp"
+
             android:text="name"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/by3"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
-            android:paddingLeft="15dp"
-            android:paddingRight="20dp"
+
             android:text="name"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
@@ -207,9 +201,11 @@
         android:layout_width="150dp"
         android:layout_height="45dp"
 
+        android:layout_centerHorizontal="true"
 
-        android:layout_marginLeft="115dp"
-        android:layout_marginTop="450dp"
+        android:layout_below="@id/relC"
+        android:layout_marginTop="30dp"
+
         android:gravity="center"
         android:text="@string/gotomenu"
         android:textSize="14sp" />

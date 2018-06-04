@@ -5,157 +5,151 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
-    tools:context=".Signup"
-    android:layout_weight="10">
+    tools:context=".Signup">
 
-    <TextView
-        android:id="@+id/firstName"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rel2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
 
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
-        android:text="First name"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        />
+        >
 
-    <TextView
-        android:id="@+id/lastName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First name"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/fnameput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_toRightOf="@+id/firstName"
+            android:layout_alignTop="@+id/firstName"
+            android:inputType="textPersonName" />
 
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
-        android:text="Last name"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fnameput"
+            android:text="Last name"
+            android:minWidth="70dp"
 
-    <TextView
-        android:id="@+id/userName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            android:textStyle="bold" />
 
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="150dp"
-        android:text="Username"
-        android:textSize="18sp"
-        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/lnameput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/lastName"
+            android:layout_alignTop="@+id/lastName"
+            android:ems="10"
+            android:inputType="textPersonName" />
 
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="200dp"
-        android:text="Password"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lnameput"
+            android:text="Username"
+            android:minWidth="70dp"
 
-    <TextView
-        android:id="@+id/emailad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            android:textStyle="bold" />
 
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="250dp"
-        android:text="Email "
-        android:textSize="18sp"
-        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/phonenum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/userput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/userName"
+            android:layout_alignTop="@+id/userName"
+            android:ems="10"
+            android:inputType="textPersonName" />
 
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="300dp"
-        android:text="Phone"
-        android:textSize="18sp"
-        android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/fnameput"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userput"
+            android:text="Password"
+            android:minWidth="70dp"
 
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/lnameput"
-        android:layout_width="wrap_content"
-        android:layout_height="39dp"
+        <EditText
+            android:id="@+id/passwordput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/password"
+            android:layout_alignTop="@+id/password"
+            android:ems="10"
+            android:inputType="textPassword" />
 
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        <TextView
+            android:id="@+id/emailad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passwordput"
+            android:text="Email "
+            android:minWidth="70dp"
 
-    <EditText
-        android:id="@+id/userput"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
+            android:textStyle="bold" />
 
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="150dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/emailput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/emailad"
+            android:layout_alignTop="@+id/emailad"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
 
-    <EditText
-        android:id="@+id/passwordput"
-        android:layout_width="wrap_content"
-        android:layout_height="38dp"
+        <TextView
+            android:id="@+id/phonenum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailput"
+            android:text="Phone"
+            android:minWidth="70dp"
+            android:textStyle="bold" />
 
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="200dp"
-        android:ems="10"
-        android:inputType="textPassword" />
 
-    <EditText
-        android:id="@+id/emailput"
-        android:layout_width="wrap_content"
-        android:layout_height="39dp"
+        <EditText
+            android:id="@+id/phoneput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/phonenum"
+            android:layout_alignTop="@+id/phonenum"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </RelativeLayout>
 
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="250dp"
-        android:ems="10"
-        android:inputType="textEmailAddress" />
+        <Button
+            android:id="@+id/signB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rel2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Sign up" />
 
-    <EditText
-        android:id="@+id/phoneput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="300dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <Button
-        android:id="@+id/signB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginLeft="135dp"
-        android:layout_marginTop="380dp"
-        android:text="Sign up" />
 
     <Button
         android:id="@+id/facebookB"
         android:layout_width="wrap_content"
+        android:layout_below="@+id/signB"
+        android:layout_marginTop="25dp"
         android:layout_height="wrap_content"
-
-
-        android:layout_marginTop="440dp"
         android:layout_centerHorizontal="true"
         android:background="@android:color/holo_blue_dark"
         android:text="Log in with facebook"
-        android:textSize="24sp"
-        />
-
+        android:textSize="24sp" />
 
 </RelativeLayout>
