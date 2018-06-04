@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class FirstAPPpage extends AppCompatActivity {
+public class TodayReport extends AppCompatActivity {
 
     Button gomenu;
 
@@ -24,7 +24,7 @@ public class FirstAPPpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(FirstAPPpage.this, MainActivity.class);
+                Intent intent = new Intent(TodayReport.this, MainActivity.class);
                 startActivity(intent);
                 // finish();
             }

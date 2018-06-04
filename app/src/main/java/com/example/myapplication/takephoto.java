@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity2 extends AppCompatActivity {
+public class takephoto extends AppCompatActivity {
 
     private static final int CAMERA_REQUEST = 1888;
     private ImageView imageView;
@@ -19,7 +19,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_takephoto);
 
         TextView t3=(TextView)findViewById(R.id.textView3);
 
@@ -33,7 +33,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                Intent intent = new Intent(takephoto.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

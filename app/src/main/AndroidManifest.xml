@@ -20,11 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity2" />
+        <activity android:name=".takephoto" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Main4Activity" />
         <activity android:name=".Signup" />
-        <activity android:name=".FirstAPPpage" />
+        <activity android:name=".TodayReport" />
         <activity android:name=".TripReport"></activity>
     </application>
 

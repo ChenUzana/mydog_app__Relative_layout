@@ -11,7 +11,7 @@ public class Main4Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu1);
+        setContentView(R.layout.activity_welcomemenu);
 
 
        /* report=(Button)findViewById(R.id.tripReport);

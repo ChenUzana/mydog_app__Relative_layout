@@ -6,14 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
 
         findViewById(R.id.loginb).setOnClickListener(new View.OnClickListener() {
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
                // Toast.makeText(MainActivity.this,"u clicked :"+t1.getText().toString(),Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                Intent intent = new Intent(MainActivity.this, takephoto.class);
                 startActivity(intent);
                // finish();
 
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, FirstAPPpage.class);
+                Intent intent = new Intent(MainActivity.this, TodayReport.class);
                 startActivity(intent);
                 // finish();
             }

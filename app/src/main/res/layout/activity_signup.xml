@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
-    tools:context=".Signup">
+    tools:context=".Signup"
+    android:layout_weight="10">
 
     <TextView
         android:id="@+id/firstName"
@@ -16,7 +17,8 @@
         android:layout_marginTop="50dp"
         android:text="First name"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
 
     <TextView
         android:id="@+id/lastName"
@@ -152,6 +154,8 @@
         android:layout_centerHorizontal="true"
         android:background="@android:color/holo_blue_dark"
         android:text="Log in with facebook"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        />
+
 
 </RelativeLayout>
