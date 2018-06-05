@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="207dp"
 
-        android:layout_marginTop="15dp"
+
         app:srcCompat="@drawable/hoy" />
 
     <TextView
@@ -46,9 +46,9 @@
 
             android:layout_weight="1"
 
-            android:textSize="18sp"
+            android:paddingLeft="10dp"
             android:text="Time:"
-             />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/trip1"
@@ -101,9 +101,9 @@
 
             android:layout_weight="1"
 
-            android:textSize="18sp"
+            android:paddingLeft="10dp"
             android:text="Kaki:"
-             />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/yesno1"
@@ -157,9 +157,9 @@
 
             android:layout_weight="1"
 
-            android:textSize="18sp"
+            android:paddingLeft="10dp"
             android:text="By:"
-            />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/by1"

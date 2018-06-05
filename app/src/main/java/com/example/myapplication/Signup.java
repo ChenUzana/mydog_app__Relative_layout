@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,47 +24,44 @@ public class Signup extends AppCompatActivity {
 
 
     EditText firstNameI;
-    DocumentReference db = FirebaseFirestore.getInstance().document("chen/first");
+    private static final String TAG ="MainActivity" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setTimestampsInSnapshotsEnabled(true)
+                .build();
+        firestore.setFirestoreSettings(settings);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         firstNameI=(EditText)findViewById(R.id.fnameput);
 
 
-
-        findViewById(R.id.signB).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
                 Map<String, Object> user = new HashMap<>();
-                user.put("first", firstNameI.toString());
-                user.put("last", "uzana");
+                user.put("first", "shemtov");
+                user.put("last", "cohen");
+                user.put("born", 1993);
 
-
-// Add a new document with a generated ID
                 db.collection("users")
                         .add(user)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
-                                Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
+                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                             }
-
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Log.w("TAG", "Error adding document", e);
+                                Log.w(TAG, "Error adding document", e);
                             }
                         });
 
-
-            }
-
-        });
 
     }
 }

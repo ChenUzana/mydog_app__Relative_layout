@@ -32,7 +32,6 @@ public class TripReport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               // Date c = Calendar.getInstance().getTime();
                 String c = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
 
                 todaydate.setText(c.toString());
@@ -44,13 +43,12 @@ public class TripReport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               // int hours = (int) ((timeInMillis / (1000 * 60 * 60)));
-                //int minutes = (int) ((timeInMillis / (1000 * 60)) % 60);
-
                 Date currentTime = Calendar.getInstance().getTime();
+                int min=Calendar.getInstance().getTime().getMinutes();
+                int hou=Calendar.getInstance().getTime().getHours();
+                String time=hou+":"+min;
 
-
-                todaytime.setText(Calendar.getInstance().getTime().getHours()+":"+Calendar.getInstance().getTime().getMinutes());
+                todaytime.setText(time);
             }
         });
 
