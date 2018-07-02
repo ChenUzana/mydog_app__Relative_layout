@@ -8,12 +8,11 @@
     tools:context=".welcomeMenu">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/welcomehead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_centerHorizontal="true"
-
         android:layout_marginTop="15dp"
 
         android:text="Welcome + name"
@@ -21,85 +20,93 @@
 
     <Button
         android:id="@+id/tripReport"
-        android:layout_width="140dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
 
-        android:layout_marginLeft="80dp"
         android:layout_marginTop="90dp"
         android:background="#66ffff"
-        android:text="Report a trip" />
+        android:text="Report a trip"
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
 
-        android:layout_alignTop="@+id/tripReport"
-        android:layout_toRightOf="@+id/tripReport"
-
-        app:srcCompat="@drawable/dog1" />
+        android:drawableRight="@drawable/dog1"/>
 
     <Button
-        android:id="@+id/dogGardenB"
-        android:layout_width="140dp"
+        android:id="@+id/Food_Report"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
 
         android:layout_below="@id/tripReport"
 
-        android:layout_marginLeft="80dp"
         android:layout_marginTop="16dp"
-        android:background="#80ff80"
-        android:text="Dog's Garden" />
+        android:background="#ff6666"
+        android:text="Food Report"
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_alignTop="@+id/dogGardenB"
-        android:layout_toRightOf="@+id/dogGardenB"
-
-        app:srcCompat="@drawable/dogbone" />
+        android:layout_centerHorizontal="true"
+        android:drawableRight="@drawable/bowl"/>
 
     <Button
-        android:id="@+id/seeSch"
-        android:layout_width="140dp"
+        android:id="@+id/today_reports"
+
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/Food_Report"
+        android:layout_marginTop="16dp"
+        android:background="#cccc00"
+        android:text="Today's Reports"
+
+        android:layout_centerHorizontal="true"
+        android:drawableRight="@drawable/dogbone"/>
+
+
+
+
+    <Button
+        android:id="@+id/dogGardenB"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/today_reports"
+
+        android:layout_marginTop="16dp"
+        android:background="#ff80ff"
+        android:text="Dog's Garden"
+
+        android:layout_centerHorizontal="true"
+        android:drawableRight="@drawable/dogbone"
+        />
+
+    <Button
+        android:id="@+id/dogidbutton"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
 
         android:layout_below="@id/dogGardenB"
 
-        android:layout_marginLeft="80dp"
         android:layout_marginTop="16dp"
-        android:text="See scheduale" />
+        android:background="#80ff80"
+        android:text="Dog id"
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:drawableRight="@drawable/pawdog"
+        />
 
-        android:layout_alignTop="@+id/seeSch"
-        android:layout_toRightOf="@+id/seeSch"
-
-        app:srcCompat="@drawable/pawdog" />
 
     <Button
         android:id="@+id/buyFood"
-        android:layout_width="140dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
 
-        android:layout_below="@id/seeSch"
-        android:layout_marginLeft="80dp"
+        android:layout_below="@id/dogidbutton"
+
         android:layout_marginTop="16dp"
         android:background="#e48d732a"
-        android:text="Buy food" />
+        android:text="The Shop"
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:drawableRight="@drawable/bowl"
+        />
 
-        android:layout_alignTop="@+id/buyFood"
-        android:layout_toRightOf="@+id/buyFood"
-        app:srcCompat="@drawable/bowl" />
 
 </RelativeLayout>

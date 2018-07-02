@@ -27,7 +27,9 @@
         <activity android:name=".Signup" />
         <activity android:name=".TodayReport" />
         <activity android:name=".TripReport" />
-        <activity android:name=".DogsGarden"></activity>
+        <activity android:name=".DogsGarden" />
+        <activity android:name=".food_report" />
+        <activity android:name=".dogid_page"></activity>
     </application>
 
 </manifest>

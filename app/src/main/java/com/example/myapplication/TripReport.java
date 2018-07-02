@@ -44,8 +44,10 @@ public class TripReport extends AppCompatActivity {
             public void onClick(View v) {
 
                 Date currentTime = Calendar.getInstance().getTime();
+
                 int min=Calendar.getInstance().getTime().getMinutes();
                 int hou=Calendar.getInstance().getTime().getHours();
+
                 String time=hou+":"+min;
 
                 todaytime.setText(time);

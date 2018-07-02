@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/birthdaybg"
+    tools:context=".dogid_page">
+
+<LinearLayout
+    android:id="@+id/linb"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_centerHorizontal="true"
+    android:gravity="center"
+    android:padding="15dp"
+    android:layout_marginTop="60dp"
+
+    >
+
+
+    <Button
+        android:id="@+id/createb"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:onClick="createdog"
+
+        android:text="Create new dog" />
+
+    <Button
+        android:id="@+id/changeb"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+
+        android:onClick="changedog"
+        android:text="Change Dog id" />
+
+
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lincreate"
+        android:layout_below="@id/linb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+
+        >
+    <TextView
+        android:id="@+id/newdogname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Dog name: " />
+
+        <EditText
+
+            android:id="@+id/newdognameput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:ems="10"
+           />
+
+        <TextView
+            android:id="@+id/newdogid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:text="Dog id: " />
+
+        <EditText
+
+            android:id="@+id/newdogidput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:minWidth="70dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createdogB"
+            android:text="create"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linid"
+        android:layout_below="@id/linb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="30dp"
+
+        android:visibility="gone"
+
+        >
+        <TextView
+            android:id="@+id/changedogid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Change to Dog id: " />
+
+        <EditText
+
+            android:id="@+id/changedogput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:ems="10"
+            />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/changeidB"
+            android:text="change now"
+            />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -16,7 +16,7 @@ public class myDogBlue extends AppCompatActivity {
             public void run() {
                 try {
                     synchronized (this) {
-                        wait(2000);
+                        wait(1000);
                         Intent intent = new Intent (myDogBlue.this, logIn.class);
                         startActivity(intent);
                         finish();

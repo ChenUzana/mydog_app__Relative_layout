@@ -22,10 +22,8 @@ public class takephoto extends AppCompatActivity {
         setContentView(R.layout.activity_takephoto);
 
         TextView t3=(TextView)findViewById(R.id.textView3);
-
         SharedPreferences sp=getSharedPreferences("key",0);
         String tv=sp.getString("textvalue","");
-
         t3.setText("Welcome "+tv+" !");
 
 

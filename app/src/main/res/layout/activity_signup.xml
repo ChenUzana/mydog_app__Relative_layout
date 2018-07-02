@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
+    android:background="#ffffff"
     tools:context=".Signup">
 
     <RelativeLayout
         android:id="@+id/rel2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="30dp"
-
+        android:gravity="center"
         >
 
         <TextView
@@ -22,23 +22,29 @@
             android:layout_height="wrap_content"
             android:text="First name"
             android:textStyle="bold" />
+
         <EditText
             android:id="@+id/fnameput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_toRightOf="@+id/firstName"
             android:layout_alignTop="@+id/firstName"
+
+            android:layout_toRightOf="@+id/firstName"
+            android:ems="10"
+
+            android:gravity="center"
+            android:hint="First name "
+
             android:inputType="textPersonName" />
+
 
         <TextView
             android:id="@+id/lastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fnameput"
-            android:text="Last name"
             android:minWidth="70dp"
-
+            android:text="Last name"
             android:textStyle="bold" />
 
 
@@ -46,9 +52,13 @@
             android:id="@+id/lnameput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/lastName"
+
             android:layout_alignTop="@+id/lastName"
+            android:layout_toRightOf="@+id/lastName"
+
             android:ems="10"
+            android:gravity="center"
+            android:hint="Last name"
             android:inputType="textPersonName" />
 
         <TextView
@@ -56,8 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/lnameput"
-            android:text="Username"
             android:minWidth="70dp"
+            android:text="Username"
 
             android:textStyle="bold" />
 
@@ -66,9 +76,13 @@
             android:id="@+id/userput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/userName"
+
             android:layout_alignTop="@+id/userName"
+            android:layout_toRightOf="@+id/userName"
+
             android:ems="10"
+            android:gravity="center"
+            android:hint="Choose User name"
             android:inputType="textPersonName" />
 
 
@@ -77,8 +91,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/userput"
-            android:text="Password"
             android:minWidth="70dp"
+            android:text="Password"
 
             android:textStyle="bold" />
 
@@ -86,9 +100,13 @@
             android:id="@+id/passwordput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/password"
+
             android:layout_alignTop="@+id/password"
+            android:layout_toRightOf="@+id/password"
+
             android:ems="10"
+            android:gravity="center"
+            android:hint="Password"
             android:inputType="textPassword" />
 
         <TextView
@@ -96,8 +114,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/passwordput"
-            android:text="Email "
             android:minWidth="70dp"
+            android:text="Email "
 
             android:textStyle="bold" />
 
@@ -105,9 +123,13 @@
             android:id="@+id/emailput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/emailad"
+
             android:layout_alignTop="@+id/emailad"
+            android:layout_toRightOf="@+id/emailad"
+
             android:ems="10"
+            android:gravity="center"
+            android:hint="Email Adress"
             android:inputType="textEmailAddress" />
 
         <TextView
@@ -115,8 +137,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/emailput"
-            android:text="Phone"
+
             android:minWidth="70dp"
+            android:text="Phone"
             android:textStyle="bold" />
 
 
@@ -124,32 +147,66 @@
             android:id="@+id/phoneput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/phonenum"
-            android:layout_alignTop="@+id/phonenum"
-            android:ems="10"
-            android:inputType="textPersonName" />
-    </RelativeLayout>
 
-        <Button
-            android:id="@+id/signB"
+            android:layout_alignTop="@+id/phonenum"
+            android:layout_toRightOf="@+id/phonenum"
+
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Phone Number"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/dogid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rel2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:text="Sign up" />
+            android:layout_below="@+id/phoneput"
 
+            android:minWidth="70dp"
+
+            android:text="Dog id"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/dogidput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignTop="@+id/dogid"
+            android:layout_toRightOf="@+id/dogid"
+
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Dog id - if available"
+            android:inputType="textPersonName" />
+
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/checkB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Check availability"
+        android:background="@drawable/testingcolorbutton1"/>
 
 
     <Button
-        android:id="@+id/facebookB"
+        android:id="@+id/signB"
         android:layout_width="wrap_content"
-        android:layout_below="@+id/signB"
-        android:layout_marginTop="25dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/checkB"
         android:layout_centerHorizontal="true"
-        android:background="@android:color/holo_blue_dark"
-        android:text="Log in with facebook"
-        android:textSize="24sp" />
+        android:layout_marginTop="20dp"
+        android:text="Sign up"
+        android:enabled="false"/>
+
+
+
 
 </RelativeLayout>
