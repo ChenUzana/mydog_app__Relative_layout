@@ -2,73 +2,124 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlay"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="#b3e0ff"
     android:layoutDirection="ltr"
     tools:context=".TripReport"
     tools:layout_editor_absoluteY="81dp">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="ADD REPORTS"
+        android:textSize="28dp"
+
+        />
+
+    <LinearLayout
+        android:id="@+id/linchoose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/tripADD"
+
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/buttonshape"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:textSize="26sp"
+            android:onClick="showTripPage"
+
+            android:text="Trip" />
+
+        <Button
+            android:id="@+id/foodAdd"
+            android:layout_margin="10dp"
+            android:background="@drawable/buttonshape"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textSize="26sp"
+            android:layout_centerHorizontal="true"
+
+            android:onClick="showFoodPage"
+
+            android:text="FOOD" />
+
+
+    </LinearLayout>
+
+
     <RelativeLayout
         android:id="@+id/relr"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linchoose"
+
+        android:visibility="gone">
 
         <RadioGroup
             android:id="@+id/ChoosetripGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="vertical"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-
-            android:layout_marginTop="40dp"
-            >
+            android:orientation="vertical">
 
             <RadioButton
                 android:id="@+id/RBtrip1"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-
-                android:text="Morning" />
+                android:checked="true"
+                android:text="Morning"
+                android:onClick="getTripType"/>
 
             <RadioButton
                 android:id="@+id/RBtrip2"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
 
-                android:text="Noon" />
+                android:text="Noon"
+                android:onClick="getTripType"/>
 
             <RadioButton
                 android:id="@+id/RBtrip3"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
 
-                android:text="Night" />
+                android:text="Night"
+                android:onClick="getTripType"/>
 
         </RadioGroup>
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:gravity="center"
-
-        android:layout_below="@id/relr"
-        >
 
         <EditText
             android:id="@+id/tripDate"
             android:layout_width="159dp"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="50dp"
+            android:layout_below="@+id/ChoosetripGroup"
+            android:layout_marginLeft="59dp"
+            android:layout_marginTop="30dp"
+
+            android:clickable="true"
+            android:editable="false"
+
+            android:onClick="DateFromCalender"
 
             android:ems="10"
-            android:inputType="date"
-            tools:text="trip date" />
+            android:hint="DD-MM-YY"
+            />
 
         <Button
             android:id="@+id/todayB"
@@ -77,6 +128,7 @@
 
             android:layout_alignBaseline="@+id/tripDate"
             android:layout_toRightOf="@+id/tripDate"
+            android:onClick="setTodayDate"
 
             android:text="Today" />
 
@@ -87,9 +139,15 @@
 
             android:layout_below="@id/tripDate"
 
+            android:layout_marginLeft="59dp"
+
+            android:onClick="setHourDialog2"
+
             android:ems="10"
-            android:inputType="time"
-            android:text="trip hour" />
+            android:hint="Hour  HH:MM"
+            android:clickable="true"
+            android:editable="false"
+            />
 
         <Button
             android:id="@+id/nowB"
@@ -99,42 +157,189 @@
             android:layout_alignBaseline="@+id/tripHour"
             android:layout_toRightOf="@+id/tripHour"
 
+            android:onClick="setNowTime"
+
             android:text="Now" />
 
-        <ImageView
-            android:id="@+id/kakiImage"
-            android:layout_width="50dp"
+        <LinearLayout
+            android:id="@+id/linkaka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/tripHour"
+            android:layout_marginTop="15dp"
+            >
+
+            <ImageView
+                android:id="@+id/kakiImage"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tripHour"
+
+
+                app:srcCompat="@drawable/poop" />
+
+            <CheckBox
+                android:id="@+id/kakiCB"
+                android:layout_width="94dp"
+                android:layout_height="46dp"
+
+                android:onClick="kakiClick"
+
+                android:text="Kaki"
+                android:textSize="22sp" />
+
+
+            </LinearLayout>
+
+
+        <Button
+            android:id="@+id/addReport"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_below="@+id/tripHour"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/poop" />
+            android:layout_below="@+id/linkaka"
 
-        <CheckBox
-            android:id="@+id/kakiCB"
-            android:layout_width="94dp"
-            android:layout_height="46dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
 
-            android:layout_toRightOf="@+id/kakiImage"
-            android:layout_alignBottom="@+id/kakiImage"
+            android:onClick="sendTripReport"
 
-            android:text="Kaki"
-            android:textSize="22sp" />
+            android:text="SEND" />
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/addReport"
 
-        android:layout_width="190dp"
-        android:layout_height="40dp"
+    <RelativeLayout
+        android:id="@+id/relFood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linchoose"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
 
-        android:layout_centerHorizontal="true"
 
-        android:layout_below="@+id/relc"
-        android:layout_marginTop="30dp"
+        <TextView
+            android:id="@+id/foodHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Food Report"
+            android:textSize="18dp"
 
-        android:text="Add Report!" />
+            />
+
+        <RadioGroup
+            android:id="@+id/rgFood"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/foodHead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           android:gravity="center"
+            android:padding="10dp"
+            >
+            <RadioButton
+                android:id="@+id/RDmeal1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:onClick="getMealType2"
+                android:text="Meal1"/>
+            <RadioButton
+                android:id="@+id/RDmeal2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getMealType2"
+                android:text="Meal2"/>
+            <RadioButton
+                android:id="@+id/RDmeal3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="getMealType2"
+                android:text="Meal3"/>
+
+            </RadioGroup>
+
+
+        <EditText
+            android:id="@+id/FoodDate2"
+
+            android:layout_below="@+id/rgFood"
+            android:layout_width="159dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="59dp"
+            android:layout_marginTop="20dp"
+
+            android:clickable="true"
+            android:editable="false"
+
+            android:onClick="DateFromCalender"
+
+            android:ems="10"
+            android:hint="DD/MM/YY"
+            />
+
+        <Button
+            android:id="@+id/todayB2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignBaseline="@+id/FoodDate2"
+            android:layout_toRightOf="@+id/FoodDate2"
+            android:onClick="setTodayDate"
+
+            android:text="Today" />
+
+        <EditText
+            android:id="@+id/FoodHour2"
+            android:layout_width="159dp"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@id/FoodDate2"
+
+            android:layout_marginLeft="59dp"
+
+            android:clickable="true"
+            android:onClick="setHourDialog2"
+            android:editable="false"
+
+            android:ems="10"
+            android:hint="Hour  HH:MM"
+             />
+
+        <Button
+            android:id="@+id/nowB2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignBaseline="@+id/FoodHour2"
+            android:layout_toRightOf="@+id/FoodHour2"
+
+            android:onClick="setNowTime"
+
+            android:text="Now" />
+
+
+        <Button
+            android:id="@+id/addReport2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_below="@+id/nowB2"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+
+            android:onClick="addFoodReport"
+
+            android:text="SEND" />
+
+
+    </RelativeLayout>
+
+
 
 </RelativeLayout>

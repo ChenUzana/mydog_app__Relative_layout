@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">MyDog</string>
-    <string name="gotomenu">Go To Menu</string>
+    <string name="goToMenu">Go To Menu</string>
+    <string name="valEmail">^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$</string>
+    <string name="valUser">Go To Menu</string>
+    <string name="Valphone">Go To Menu</string>
+
 
 </resources>

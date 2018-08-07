@@ -5,26 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/birthdaybg"
-    tools:context=".dogid_page">
+    tools:context=".dogid_page"
+    android:layoutDirection="ltr">
 
-<LinearLayout
+    <LinearLayout
     android:id="@+id/linb"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_centerHorizontal="true"
     android:gravity="center"
-    android:padding="15dp"
-    android:layout_marginTop="60dp"
-
+    android:padding="10dp"
+    android:layout_marginTop="40dp"
     >
-
 
     <Button
         android:id="@+id/createb"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:onClick="createdog"
+        android:onClick="headbuttons"
 
         android:text="Create new dog" />
 
@@ -33,9 +32,8 @@
         android:layout_width="100dp"
         android:layout_height="60dp"
 
-        android:onClick="changedog"
-        android:text="Change Dog id" />
-
+        android:onClick="headbuttons"
+        android:text="Connect Dog id" />
 
 
 </LinearLayout>
@@ -49,17 +47,17 @@
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"
-        android:visibility="gone"
+
+
+        android:visibility="visible"
 
         >
     <TextView
         android:id="@+id/newdogname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Dog name: " />
+        android:textSize="16dp"
+        android:text="*Dog name: " />
 
         <EditText
 
@@ -74,9 +72,9 @@
             android:id="@+id/newdogid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16dp"
 
-
-            android:text="Dog id: " />
+            android:text="*Dog uniq id: " />
 
         <EditText
 
@@ -86,12 +84,42 @@
             android:ems="10"
             android:minWidth="70dp" />
 
+        <TextView
+            android:id="@+id/newdogage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+
+            android:text="Dog's birthday: " />
+
+        <EditText
+
+            android:id="@+id/newdogageput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:editable="false"
+            android:ems="10"
+            android:minWidth="70dp"
+            android:onClick="DateFromCalender"
+            />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/createdogB"
+            android:onClick="createdog"
             android:text="create"
             />
+        <TextView
+            android:id="@+id/nowgoset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:layout_marginTop="5dp"
+
+            android:text="*Dont forget to go to 'Connect Dog id' page \nafter  creating ,in order to connect your dog." />
+
 
     </LinearLayout>
 
@@ -109,12 +137,16 @@
         android:visibility="gone"
 
         >
+
+
         <TextView
             android:id="@+id/changedogid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textColor="#000000"
 
-            android:text="Change to Dog id: " />
+            android:text="Enter a dog id that exist in the app \nto connect to his info : " />
 
         <EditText
 
@@ -127,13 +159,39 @@
 
 
         <Button
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/changeidB"
-            android:text="change now"
+            android:text="Set Dog ID"
+
+            android:onClick="setDogId"
             />
 
+        <TextView
+            android:id="@+id/ifnotexist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:textSize="16dp"
+            android:gravity="center"
+
+
+            android:text="*If your dog is not in the system ,\ngo to  'Create'  page." />
+
     </LinearLayout>
+
+    <Button
+        android:layout_width="85dp"
+        android:layout_height="43dp"
+        android:layout_below="@+id/linb"
+
+        android:layout_marginTop="330dp"
+        android:layout_marginLeft="200dp"
+        android:background="@color/common_google_signin_btn_text_dark_pressed"
+        android:text="Goto Menu"
+        android:onClick="gomenu"
+        />
 
 
 

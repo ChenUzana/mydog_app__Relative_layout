@@ -5,14 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
-    android:background="#ffffff"
+    android:background="@drawable/signup_bg"
     tools:context=".Signup">
+
+    <TextView
+        android:id="@+id/signUpHeader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Registration"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"
+        android:textSize="30dp"
+
+        android:gravity="center_horizontal"
+        />
 
     <RelativeLayout
         android:id="@+id/rel2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="70dp"
         android:gravity="center"
         >
 
@@ -93,6 +105,7 @@
             android:layout_below="@+id/userput"
             android:minWidth="70dp"
             android:text="Password"
+            android:onClick="showmepass"
 
             android:textStyle="bold" />
 
@@ -108,6 +121,19 @@
             android:gravity="center"
             android:hint="Password"
             android:inputType="textPassword" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/passwordput"
+            android:layout_alignBottom="@+id/passwordput"
+            android:layout_alignLeft="@+id/passwordput"
+            android:src="@drawable/ic_showpass"
+            android:onClick="showmepass"
+
+            />
 
         <TextView
             android:id="@+id/emailad"
@@ -153,6 +179,7 @@
 
             android:ems="10"
             android:gravity="center"
+            android:maxLength="10"
             android:hint="Phone Number"
             android:inputType="textPersonName" />
 
@@ -165,7 +192,8 @@
             android:minWidth="70dp"
 
             android:text="Dog id"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone"/>
 
 
         <EditText
@@ -179,7 +207,8 @@
             android:ems="10"
             android:gravity="center"
             android:hint="Dog id - if available"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:visibility="gone"/>
 
 
 
@@ -192,7 +221,9 @@
         android:layout_below="@+id/rel2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:textSize="16dp"
         android:text="Check availability"
+        android:onClick="checkuser"
         android:background="@drawable/testingcolorbutton1"/>
 
 
@@ -203,8 +234,14 @@
         android:layout_below="@+id/checkB"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+
+        android:background="@drawable/signup_bt"
         android:text="Sign up"
-        android:enabled="false"/>
+        android:textColor="#000000"
+        android:textSize="26sp"
+        android:onClick="signup"
+        android:enabled="false"
+        android:visibility="gone"/>
 
 
 

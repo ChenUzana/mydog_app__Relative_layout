@@ -20,20 +20,22 @@
         android:layout_marginTop="50dp"
         />
 
+
+
     <EditText
         android:id="@+id/inputuser"
         android:layout_width="match_parent"
         android:layout_height="50dp"
 
-        android:hint="User name"
+        android:hint="Your Email"
         android:gravity="center"
-        android:background="@drawable/edit_text_border"
+        android:background="@drawable/logininputs"
 
         android:layout_below="@+id/doghead"
         android:layout_marginTop="15dp"
         android:textSize="26dp"
 
-        android:inputType="text" />
+        android:inputType="textEmailAddress" />
 
 
     <EditText
@@ -44,13 +46,27 @@
         android:hint="Password"
         android:gravity="center"
 
-        android:background="@drawable/edit_text_border"
+        android:background="@drawable/logininputs"
 
         android:layout_below="@+id/inputuser"
         android:layout_marginTop="15dp"
         android:textSize="26dp"
 
         android:inputType="textPassword" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:padding="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/inputpass"
+        android:layout_alignBottom="@+id/inputpass"
+        android:layout_alignRight="@+id/inputpass"
+        android:src="@drawable/ic_showpass"
+        android:onClick="showmepass"
+
+        />
 
     <Button
         android:id="@+id/loginb"
@@ -63,21 +79,27 @@
 
         android:background="@drawable/edit_text_border2"
         android:textSize="22dp"
+        android:onClick="login"
 
         android:text="LOG IN" />
 
 
-    <Button
-        android:id="@+id/newuserB"
+
+    <TextView
+        android:id="@+id/forgotp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/loginb"
+        android:layout_alignBottom="@+id/loginb"
+        android:gravity="center"
+        android:padding="5dp"
 
-        android:layout_below="@+id/loginb"
-        android:layout_marginTop="170dp"
+        android:textSize="12dp"
+        android:onClick="iforgot"
 
-        android:text="New user? Register now" />
+        android:text="Forgot \nPassword?" />
+
 
 
     <LinearLayout
@@ -86,20 +108,50 @@
         android:layout_height="wrap_content"
 
         android:layout_below="@+id/loginb"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
 
         android:gravity="center"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/b1"
-            android:layout_width="80dp"
-            android:layout_height="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-            android:text="Menu"
+            android:text="Admin Menu"
+            android:onClick="menu"
             android:textSize="12sp" />
 
+        <Button
+            android:id="@+id/SP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:text="SEE SP"
+            android:onClick="showSP"
+            android:textSize="12sp" />
+
+
     </LinearLayout>
+
+
+    <Button
+        android:id="@+id/newuserB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/loginb"
+        android:layout_marginTop="170dp"
+        android:onClick="newuser"
+
+        android:text="New to MyDog ? click here" />
+
+
+
 
 
 

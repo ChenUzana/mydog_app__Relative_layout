@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
-    tools:context=".welcomeMenu">
+    tools:context=".welcomeMenu"
+    android:background="@drawable/frameone">
 
     <TextView
         android:id="@+id/welcomehead"
@@ -13,37 +14,37 @@
         android:layout_height="wrap_content"
 
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
 
         android:text="Welcome + name"
         android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/dogIs"
+        android:layout_below="@+id/welcomehead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+
+        android:text="Dog : "
+        android:textSize="17sp" />
 
     <Button
         android:id="@+id/tripReport"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/dogIs"
 
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="5dp"
         android:background="#66ffff"
-        android:text="Report a trip"
+        android:text="Trip/Food \nReport"
+        android:onClick="addReport"
 
         android:layout_centerHorizontal="true"
 
         android:drawableRight="@drawable/dog1"/>
 
-    <Button
-        android:id="@+id/Food_Report"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-
-        android:layout_below="@id/tripReport"
-
-        android:layout_marginTop="16dp"
-        android:background="#ff6666"
-        android:text="Food Report"
-
-        android:layout_centerHorizontal="true"
-        android:drawableRight="@drawable/bowl"/>
 
     <Button
         android:id="@+id/today_reports"
@@ -51,10 +52,11 @@
         android:layout_width="190dp"
         android:layout_height="wrap_content"
 
-        android:layout_below="@id/Food_Report"
+        android:layout_below="@id/tripReport"
         android:layout_marginTop="16dp"
         android:background="#cccc00"
         android:text="Today's Reports"
+        android:onClick="todayReports"
 
         android:layout_centerHorizontal="true"
         android:drawableRight="@drawable/dogbone"/>
@@ -73,6 +75,8 @@
         android:background="#ff80ff"
         android:text="Dog's Garden"
 
+        android:onClick="dogGarden"
+
         android:layout_centerHorizontal="true"
         android:drawableRight="@drawable/dogbone"
         />
@@ -87,6 +91,7 @@
         android:layout_marginTop="16dp"
         android:background="#80ff80"
         android:text="Dog id"
+        android:onClick="dogid"
 
         android:layout_centerHorizontal="true"
         android:drawableRight="@drawable/pawdog"
@@ -103,10 +108,54 @@
         android:layout_marginTop="16dp"
         android:background="#e48d732a"
         android:text="The Shop"
+        android:onClick="theShop"
 
         android:layout_centerHorizontal="true"
         android:drawableRight="@drawable/bowl"
         />
+
+    <Button
+        android:id="@+id/Community"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/buyFood"
+
+        android:layout_marginTop="16dp"
+        android:background="#fa7a7d"
+        android:text="Community"
+        android:onClick="comunitypage"
+
+        android:layout_centerHorizontal="true"
+        android:drawableRight="@drawable/bowl"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomehead"
+        android:orientation="horizontal"
+        android:gravity="right"
+
+        android:layout_marginTop="420dp">
+
+
+        <Button
+            android:id="@+id/disconnectB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disconnect"
+            android:onClick="disconnectUser"
+            android:background="#00FF0000"
+            android:layout_marginRight="20dp"
+            />
+
+
+
+
+    </LinearLayout>
+
+
 
 
 </RelativeLayout>

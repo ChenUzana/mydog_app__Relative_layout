@@ -5,13 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
-    tools:context=".TodayReport">
+    tools:context=".TodayReport"
+    android:id="@+id/parent">
+
+   <TextView
+       android:id="@+id/dogname"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="dogname"
+       android:layout_centerHorizontal="true"
+       android:textColor="@android:color/black"
+       android:textSize="22dp"
+       />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="207dp"
-
+        android:layout_below="@+id/dogname"
 
         app:srcCompat="@drawable/hoy" />
 
@@ -20,11 +31,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
 
         android:gravity="center"
         android:text="Today's date"
         android:layout_below="@+id/imageView"
+
+        android:clickable="true"
+        android:onClick="setDateReport"
+
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="24sp" />
+
+
+    <TextView
+        android:id="@+id/nodognote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+
+        android:gravity="center"
+        android:text="you didnt connect any dog yet\n go to menu-->'dogid' to set."
+        android:layout_below="@+id/todayDateHere"
+        android:visibility="gone"
 
         android:textColor="@android:color/holo_red_light"
         android:textSize="24sp" />
@@ -34,11 +64,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:weightSum="4"
-
-        android:layout_below="@+id/todayDateHere"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
+
+        android:layout_below="@+id/todayDateHere"
         >
 
         <TextView
@@ -46,16 +75,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:background="#80ffaa"
             android:layout_weight="1"
-
             android:paddingLeft="10dp"
-            android:text="Time:"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+
+            android:text="Time:"/>
 
         <TextView
             android:id="@+id/trip1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
 
             android:layout_weight="1"
 
@@ -68,7 +99,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:background="#d9d9d9"
             android:layout_weight="1"
+            android:gravity="center"
+
 
             android:text="trip2"
             android:textColor="@android:color/black"
@@ -80,9 +114,11 @@
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
+            android:gravity="center"
+
+            android:textColor="@android:color/black"
 
             android:text="trip3"
-            android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -91,27 +127,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_below="@id/relA"
+        android:orientation="horizontal"
 
+        android:layout_below="@id/relA"
         android:layout_marginTop="30dp"
-        android:orientation="horizontal">
+        >
 
         <TextView
             android:id="@+id/KakiHead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+
             android:layout_weight="1"
+            android:textSize="18sp"
 
             android:paddingLeft="10dp"
+            android:background="#80ffaa"
             android:text="Kaki:"
-            android:textSize="18sp" />
+             />
 
         <TextView
             android:id="@+id/yesno1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:gravity="center"
             android:layout_weight="1"
 
             android:text="yes/no"
@@ -123,6 +164,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:background="#d9d9d9"
+            android:gravity="center"
             android:layout_weight="1"
 
             android:text="yes/no"
@@ -134,6 +177,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:gravity="center"
             android:layout_weight="1"
 
             android:text="yes/no"
@@ -159,6 +203,7 @@
 
             android:layout_weight="1"
 
+            android:background="#80ffaa"
             android:paddingLeft="10dp"
             android:text="By:"
             android:textSize="18sp" />
@@ -168,6 +213,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:gravity="center"
             android:layout_weight="1"
 
             android:text="name"
@@ -178,8 +224,10 @@
             android:id="@+id/by2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#d9d9d9"
 
             android:layout_weight="1"
+            android:gravity="center"
 
             android:text="name"
             android:textColor="@android:color/black"
@@ -191,10 +239,133 @@
             android:layout_height="wrap_content"
 
             android:layout_weight="1"
+            android:gravity="center"
 
             android:text="name"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/relD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/relC"
+
+        android:layout_marginTop="30dp"
+        android:background="@android:color/holo_orange_light"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:paddingLeft="10dp"
+            android:text="Food:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/food1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+
+            android:text="food1"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/food2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:text="food2"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/food3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:text="food3"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/relE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/relD"
+
+
+        android:background="@android:color/holo_orange_dark"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/foodby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:paddingLeft="10dp"
+            android:text= "by:     "
+
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/foodBy1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:text="food1"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/foodBy2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:text="food2"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/foodBy3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:text="food3"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+
 
     </LinearLayout>
 
@@ -205,14 +376,16 @@
 
         android:layout_centerHorizontal="true"
 
-        android:layout_below="@id/relC"
-        android:layout_marginTop="30dp"
+        android:layout_below="@id/relE"
+        android:layout_marginTop="20dp"
 
         android:textColor="@android:color/white"
         android:background="@android:color/black"
 
         android:gravity="center"
-        android:text="@string/gotomenu"
+        android:text="@string/goToMenu"
+
+        android:onClick="goToMenu"
         android:textSize="16sp" />
 
 </RelativeLayout>
