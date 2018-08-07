@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
     tools:context=".welcomeMenu"
-    android:background="@drawable/frameone">
+    android:background="@drawable/frametwo">
 
     <TextView
         android:id="@+id/welcomehead"
@@ -38,7 +38,7 @@
 
         android:layout_marginTop="5dp"
         android:background="#66ffff"
-        android:text="Trip/Food \nReport"
+        android:text="Add Report\nTrip/Food "
         android:onClick="addReport"
 
         android:layout_centerHorizontal="true"
