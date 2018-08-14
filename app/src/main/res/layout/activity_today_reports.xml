@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
     tools:context=".TodayReport"
+    android:background="#7FFFD4"
     android:id="@+id/parent">
 
    <TextView
@@ -15,6 +16,7 @@
        android:text="dogname"
        android:layout_centerHorizontal="true"
        android:textColor="@android:color/black"
+       android:fontFamily="@font/suezone"
        android:textSize="22dp"
        />
 
@@ -24,14 +26,14 @@
         android:layout_height="207dp"
         android:layout_below="@+id/dogname"
 
-        app:srcCompat="@drawable/hoy" />
+        app:srcCompat="@drawable/loadingphoto" />
 
     <TextView
         android:id="@+id/todayDateHere"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="3dp"
 
         android:gravity="center"
         android:text="Today's date"
@@ -43,231 +45,316 @@
         android:textColor="@android:color/holo_red_light"
         android:textSize="24sp" />
 
+    <TextView
+        android:id="@+id/tripsHeader"
+        android:layout_below="@id/todayDateHere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trips"
+        android:fontFamily="@font/amaticbold"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="4dp"
+        android:textSize="29dp"/>
+
+   <LinearLayout
+       android:id="@+id/thetimesLin"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:layout_below="@+id/tripsHeader"
+       android:weightSum="4"
+       android:padding="2dp"
+       android:layout_margin="3dp"
+       android:background="@drawable/border"
+       >
+
+       <LinearLayout
+           android:id="@+id/rel"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+
+           android:orientation="vertical"
+           android:layout_weight="0.7"
+
+           android:layout_below="@+id/todayDateHere"
+           >
+
+           <TextView
+               android:id="@+id/empty1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:background="#80ffaa"
+               android:paddingTop="5dp"
+
+               android:textSize="18sp"
+               android:text=""/>
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:textSize="18sp"
+               android:paddingTop="5dp"
+               android:background="#1aff66"
+               android:fontFamily="@font/suezone"
+               android:gravity="center"
+               android:id="@+id/timeHead"
+               android:textColor="@android:color/black"
+               android:text="Hour"/>
+
+           <TextView
+               android:id="@+id/KakiHead"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:textSize="18sp"
+               android:paddingTop="5dp"
+               android:background="#1aff66"
+               android:fontFamily="@font/suezone"
+               android:textColor="@android:color/black"
+               android:text="Kaki"
+               android:gravity="center"
+               />
+
+
+           <TextView
+               android:id="@+id/ByHead"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:paddingTop="5dp"
+               android:fontFamily="@font/suezone"
+               android:background="#1aff66"
+               android:textColor="@android:color/black"
+               android:gravity="center"
+               android:text="By"
+               android:textSize="18sp" />
+
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:id="@+id/relA"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+
+           android:orientation="vertical"
+           android:layout_weight="1.0"
+
+
+           android:layout_below="@+id/todayDateHere"
+           >
+
+           <TextView
+
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:background="#66ffcc"
+
+               android:gravity="center"
+               android:id="@+id/empty2"
+               android:text="Morning"
+               android:textColor="@android:color/black"
+               android:textSize="18sp" />
+
+           <TextView
+               android:id="@+id/trip1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+
+               android:text="------"
+               android:textColor="@android:color/black"
+               android:textSize="18sp" />
+
+           <TextView
+               android:id="@+id/yesno1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+
+
+               android:text="------"
+               android:textColor="@android:color/black"
+               android:textSize="18sp" />
+
+           <TextView
+               android:id="@+id/by1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+
+               android:text="------"
+               android:textColor="@android:color/black"
+               android:textSize="18sp" />
+       </LinearLayout>
+
+       <LinearLayout
+           android:id="@+id/relB"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="1.2"
+           android:orientation="vertical"
+           >
+
+           <TextView
+               android:id="@+id/empty3"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+               android:background="#66ffcc"
+
+               android:text="Noon"
+               android:textColor="@android:color/black"
+               android:textSize="18sp" />
+
+           <TextView
+               android:id="@+id/trip2"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+
+               android:text="------"
+               android:textColor="@android:color/black"
+               android:textSize="18sp" />
+
+
+           <TextView
+               android:id="@+id/yesno2"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+
+               android:text="------"
+               android:textColor="@android:color/black"
+               android:textSize="18sp" />
+
+           <TextView
+               android:id="@+id/by2"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+
+               android:text="------"
+               android:textColor="@android:color/black"
+               android:textSize="18sp" />
+
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:id="@+id/relC"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="1.4"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/empty4"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+               android:background="#66ffcc"
+
+               android:textColor="@android:color/black"
+
+               android:text="Night"
+               android:textSize="18sp" />
+
+           <TextView
+               android:id="@+id/trip3"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+
+               android:textColor="@android:color/black"
+
+               android:text="------"
+               android:textSize="18sp" />
+
+           <TextView
+               android:id="@+id/yesno3"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+
+               android:text="------"
+               android:textColor="@android:color/black"
+               android:textSize="18sp" />
+
+           <TextView
+               android:id="@+id/by3"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+
+               android:paddingTop="5dp"
+               android:gravity="center"
+
+               android:text="------"
+               android:textColor="@android:color/black"
+               android:textSize="18sp" />
+
+       </LinearLayout>
+
+   </LinearLayout>
+
 
     <TextView
-        android:id="@+id/nodognote"
-        android:layout_width="match_parent"
+        android:id="@+id/foodHeader"
+        android:fontFamily="@font/amaticbold"
+        android:layout_below="@id/thetimesLin"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_marginTop="10dp"
-
-        android:gravity="center"
-        android:text="you didnt connect any dog yet\n go to menu-->'dogid' to set."
-        android:layout_below="@+id/todayDateHere"
-        android:visibility="gone"
-
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="24sp" />
-
-    <LinearLayout
-        android:id="@+id/relA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-
-        android:layout_below="@+id/todayDateHere"
-        >
-
-        <TextView
-            android:id="@+id/timeHead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:background="#80ffaa"
-            android:layout_weight="1"
-            android:paddingLeft="10dp"
-            android:textSize="18sp"
-
-            android:text="Time:"/>
-
-        <TextView
-            android:id="@+id/trip1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-
-            android:layout_weight="1"
-
-            android:text="trip1"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/trip2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:background="#d9d9d9"
-            android:layout_weight="1"
-            android:gravity="center"
-
-
-            android:text="trip2"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/trip3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_weight="1"
-            android:gravity="center"
-
-            android:textColor="@android:color/black"
-
-            android:text="trip3"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/relB"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:orientation="horizontal"
-
-        android:layout_below="@id/relA"
-        android:layout_marginTop="30dp"
-        >
-
-        <TextView
-            android:id="@+id/KakiHead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-
-            android:layout_weight="1"
-            android:textSize="18sp"
-
-            android:paddingLeft="10dp"
-            android:background="#80ffaa"
-            android:text="Kaki:"
-             />
-
-        <TextView
-            android:id="@+id/yesno1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:layout_weight="1"
-
-            android:text="yes/no"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/yesno2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:background="#d9d9d9"
-            android:gravity="center"
-            android:layout_weight="1"
-
-            android:text="yes/no"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/yesno3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:layout_weight="1"
-
-            android:text="yes/no"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/relC"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_below="@id/relB"
-
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/ByHead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_weight="1"
-
-            android:background="#80ffaa"
-            android:paddingLeft="10dp"
-            android:text="By:"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/by1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:layout_weight="1"
-
-            android:text="name"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/by2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#d9d9d9"
-
-            android:layout_weight="1"
-            android:gravity="center"
-
-            android:text="name"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/by3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_weight="1"
-            android:gravity="center"
-
-            android:text="name"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-    </LinearLayout>
+        android:text="Food"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="4dp"
+        android:textSize="29dp"/>
 
     <LinearLayout
         android:id="@+id/relD"
+        android:layout_margin="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_below="@id/relC"
-
-        android:layout_marginTop="30dp"
-        android:background="@android:color/holo_orange_light"
+        android:layout_below="@id/foodHeader"
+        android:background="@drawable/border2"
+        android:weightSum="4"
 
         android:orientation="horizontal">
 
+
         <TextView
-            android:id="@+id/food"
+            android:id="@+id/foodhour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
+            android:layout_weight="0.6"
 
-            android:paddingLeft="10dp"
-            android:text="Food:"
+            android:gravity="center"
+            android:text="Hour:"
             android:textSize="18sp" />
 
         <TextView
@@ -275,10 +362,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
+            android:layout_weight="1.1"
 
-
-            android:text="food1"
+            android:gravity="center"
+            android:text="------"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -287,9 +374,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
-
-            android:text="food2"
+            android:layout_weight="1.1"
+            android:gravity="center"
+            android:text="------"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -298,9 +385,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
+            android:layout_weight="1.1"
+            android:gravity="center"
 
-            android:text="food3"
+            android:text="------"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -310,13 +398,14 @@
 
     <LinearLayout
         android:id="@+id/relE"
+        android:layout_margin="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:layout_below="@id/relD"
+        android:weightSum="4"
 
-
-        android:background="@android:color/holo_orange_dark"
+        android:background="@drawable/border2"
 
         android:orientation="horizontal">
 
@@ -325,9 +414,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
-
-            android:paddingLeft="10dp"
+            android:layout_weight="0.6"
+            android:gravity="center"
             android:text= "by:     "
 
             android:textSize="18sp" />
@@ -337,9 +425,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
+            android:layout_weight="1.1"
+            android:gravity="center"
 
-            android:text="food1"
+            android:text="------"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -348,9 +437,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
+            android:layout_weight="1.1"
+            android:gravity="center"
 
-            android:text="food2"
+            android:text="------"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -359,9 +449,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
+            android:layout_weight="1.1"
+            android:gravity="center"
 
-            android:text="food3"
+            android:text="------"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -377,7 +468,7 @@
         android:layout_centerHorizontal="true"
 
         android:layout_below="@id/relE"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
 
         android:textColor="@android:color/white"
         android:background="@android:color/black"

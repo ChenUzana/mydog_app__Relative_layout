@@ -1,9 +1,14 @@
 package com.example.myapplication;
 
+
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,17 +16,25 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
-
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -30,20 +43,30 @@ import java.util.Map;
 
 public class dogid_page extends AppCompatActivity {
 
-    String currentuser;
-
-    String valuser2="^[a-zA-Z0-9]([._](?![._])|[a-zA-Z0-9]){2,8}[a-zA-Z0-9]$";  //username 4-10 chars ,for dog id
-    String normalname="[a-zA-Z]+";
-
-LinearLayout linIdChange,linDogCreate;
-EditText dNameET,DidET,dAgeET,setIdET;
-
-Boolean nameok=false,idOk=false;
-
     FirebaseFirestore db=FirebaseFirestore.getInstance();
     SharedPreferences sp;
     SharedPreferences.Editor SPeditor;
 
+
+    String currentuser;
+    String valuser2="^[a-zA-Z0-9]([._](?![._])|[a-zA-Z0-9]){2,8}[a-zA-Z0-9]$";  //username 4-10 chars ,for dog id
+    String normalname="[a-zA-Z]+";
+
+    Button changeB,editB,createB,uploadphoto;
+    LinearLayout linIdChange,linDogCreate,linphoto;
+    EditText dNameET,DidET,dAgeET,setIdET;
+    TextView curdog;
+    Boolean nameok=false,idOk=false;
+
+    ImageView profiledog;
+    Bitmap out;
+    public static final int REQUEST_CODE = 20;
+    Uri imageUri;
+    //--------
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
+    StorageReference dogprofilephoto;
+    //--------
     Calendar myCalendar;
     DatePickerDialog.OnDateSetListener date;
 
@@ -52,14 +75,22 @@ Boolean nameok=false,idOk=false;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dogid_page);
 
-
         myCalendar = Calendar.getInstance();
         sp = getSharedPreferences("key", 0);
         SPeditor = sp.edit();
+
         currentuser=sp.getString("emailSP","");
+
+        curdog=findViewById(R.id.currentdogid);
+        profiledog=(ImageView)findViewById(R.id.dogprofile);
+        changeB=(Button) findViewById(R.id.changeb);
+        editB=(Button) findViewById(R.id.editb);
+        createB=(Button) findViewById(R.id.createb);
+        uploadphoto=(Button) findViewById(R.id.choosephotob);
 
         linIdChange=(LinearLayout)findViewById(R.id.linid);
         linDogCreate=(LinearLayout)findViewById(R.id.lincreate);
+        linphoto=(LinearLayout)findViewById(R.id.linephoto);
 
         dNameET=(EditText)findViewById(R.id.newdognameput);
         DidET=(EditText)findViewById(R.id.newdogidput);
@@ -137,6 +168,9 @@ Boolean nameok=false,idOk=false;
             }
         });
 
+        if(sp.getString("appLang","").equals("heb")){ goHeb(); }
+        else if(sp.getString("appLang", "").equals("eng")){ goeng(); }
+
     }  //-----on create end
 
     private void updateLabel() {
@@ -156,13 +190,44 @@ Boolean nameok=false,idOk=false;
 
     public void headbuttons(View v){
         if(v.getId()==R.id.changeb) {
+
+            changeB.setBackgroundResource(R.drawable.border33);
+            editB.setBackgroundResource(R.drawable.border3);
+            createB.setBackgroundResource(R.drawable.border3);
+
             linIdChange.setVisibility(View.VISIBLE);
             linDogCreate.setVisibility(View.GONE);
+            linphoto.setVisibility(View.GONE);
         }
-        else{
+        if(v.getId()==R.id.createb) {
+            changeB.setBackgroundResource(R.drawable.border3);
+            editB.setBackgroundResource(R.drawable.border3);
+            createB.setBackgroundResource(R.drawable.border33);
+
             linDogCreate.setVisibility(View.VISIBLE);
             linIdChange.setVisibility(View.GONE);
+            linphoto.setVisibility(View.GONE);
         }
+        if(v.getId()==R.id.editb) {
+
+            if(sp.getString("dogidSP","").equals("") ||sp.getString("dogidSP","").equals("empty")){
+
+                Toast.makeText(dogid_page.this, "Must connect to a dog first..", Toast.LENGTH_LONG).show();
+            }
+            else{
+
+                curdog.setText("Dog: "+sp.getString("dogidSP",""));
+            changeB.setBackgroundResource(R.drawable.border3);
+            editB.setBackgroundResource(R.drawable.border33);
+            createB.setBackgroundResource(R.drawable.border3);
+
+            linphoto.setVisibility(View.VISIBLE);
+            linDogCreate.setVisibility(View.GONE);
+            linIdChange.setVisibility(View.GONE);
+            }
+        }
+
+
     }
 
     public void setDogId(View v) {
@@ -244,6 +309,7 @@ Boolean nameok=false,idOk=false;
                         newdog.put("DogName", dNameET.getText().toString());
                         newdog.put("DogidDG", DidET.getText().toString());
                         newdog.put("Dogbirth", dAgeET.getText().toString());
+                        newdog.put("DogCreator", sp.getString("emailSP",""));
 
                         db.collection("Dogs").document(DidET.getText().toString())
                                 .set(newdog)
@@ -316,4 +382,77 @@ Boolean nameok=false,idOk=false;
 
     }
 
+    public void uploadphoto(View v){
+
+        // invoke the image gallery using an implict intent.
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+
+        File pictureDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        String pictureDirectoryPath = pictureDirectory.getPath();
+        Uri data = Uri.parse(pictureDirectoryPath);
+        photoPickerIntent.setDataAndType(data, "image/*");
+        startActivityForResult(photoPickerIntent, REQUEST_CODE);
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            // if we are here, everything processed successfully.
+            if (requestCode == REQUEST_CODE) {
+                imageUri = data.getData();
+                InputStream inputStream;
+                try {
+                    inputStream = getContentResolver().openInputStream(imageUri);
+                    Bitmap image = BitmapFactory.decodeStream(inputStream);
+                    out = Bitmap.createScaledBitmap(image, 300, 220, false);
+
+                    profiledog.setImageBitmap(out);
+
+                } catch (FileNotFoundException e) {
+                    Toast.makeText(this, "Unable to open image", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+
+    }
+
+    public void saveprofilephoto(View v) {
+        dogprofilephoto = storageRef.child(sp.getString("dogidSP", ""));
+
+        profiledog.setDrawingCacheEnabled(true);
+        profiledog.buildDrawingCache();
+        Bitmap bitmap = ((BitmapDrawable) profiledog.getDrawable()).getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+
+        UploadTask uploadTask = dogprofilephoto.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Intent intent = new Intent(dogid_page.this, welcomeMenu.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+    //---------------------------------------
+
+    public void goHeb(){
+
+
+
+    }
+
+    public void goeng(){
+
+
+    }
 }

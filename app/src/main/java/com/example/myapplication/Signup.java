@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -17,15 +16,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreSettings;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,10 +40,13 @@ public class Signup extends AppCompatActivity {
     int x=0;
     private static final String TAG = "MainActivity";
 
-    Button si;
     EditText name,lname,usern,pass,email,phone ,dogidd;
+    TextView nameTV,lastnameTV,userTV,passTV,emailTV,phoneTV;
 
     ImageView imageView;
+
+    Button checkB,signB,si;
+    TextView regTV,hebnote;
 
     Boolean nameok=false;
     Boolean lnameok=false;
@@ -57,7 +54,6 @@ public class Signup extends AppCompatActivity {
     Boolean passok=false;
     Boolean emailok=false;
     Boolean phoneok=false;
-    Boolean dogidok=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +65,11 @@ public class Signup extends AppCompatActivity {
 
         si=(Button) findViewById(R.id.signB);
 
+        checkB=(Button) findViewById(R.id.checkB);
+        signB=(Button) findViewById(R.id.signB);
+        regTV=(TextView) findViewById(R.id.signUpHeader);
+        hebnote=(TextView) findViewById(R.id.hebnote);
+
         imageView=(ImageView)findViewById(R.id.imageView1);
 
         name =(EditText) findViewById(R.id.fnameput);
@@ -78,10 +79,16 @@ public class Signup extends AppCompatActivity {
         email=(EditText) findViewById(R.id.emailput);
         phone=(EditText) findViewById(R.id.phoneput);
         dogidd=(EditText) findViewById(R.id.dogidput);
+        //-------------------------------------
+        nameTV=(TextView) findViewById(R.id.firstName);
+        lastnameTV=(TextView) findViewById(R.id.lastName);
+        userTV=(TextView) findViewById(R.id.userName);
+        passTV=(TextView) findViewById(R.id.password);
+        emailTV=(TextView) findViewById(R.id.emailad);
+        phoneTV=(TextView) findViewById(R.id.phonenum);
 
 
         //--------------------------------------------------------------------------
-
  // input check name
         name.addTextChangedListener(new TextWatcher() {
 
@@ -114,7 +121,6 @@ public class Signup extends AppCompatActivity {
         });
 
         //--------------------------------------------------------------------------
-
         // input check last name
         lname.addTextChangedListener(new TextWatcher() {
 
@@ -146,7 +152,6 @@ public class Signup extends AppCompatActivity {
         });
 
         //--------------------------------------------------------------------------
-
         // input check username
         usern.addTextChangedListener(new TextWatcher() {
 
@@ -274,12 +279,20 @@ public class Signup extends AppCompatActivity {
             }
         });
 
-    }  // end of onCreate--------------------------------
+        if(sp.getString("appLang","").equals("heb")){ goHeb();
+            Toast.makeText(Signup.this, sp.getString("appLang",""),
+                    Toast.LENGTH_LONG).show();
+        }
+        else if(sp.getString("appLang", "").equals("eng")){ goeng();
+            Toast.makeText(Signup.this, sp.getString("appLang",""),
+                    Toast.LENGTH_LONG).show();}
 
+    }  // end of onCreate--------------------------------
 
 
     public void checkuser(View v){
 
+        findViewById(R.id.progress).setVisibility(View.VISIBLE);
         // check if fields are ok-validaition
 
         if (!( nameok.equals(true) &&
@@ -291,6 +304,7 @@ public class Signup extends AppCompatActivity {
         ))
 
         {
+            findViewById(R.id.progress).setVisibility(View.GONE);
             Toast.makeText(Signup.this, "Check all fields please!"
                             +nameok+","
                             +lnameok+","
@@ -308,10 +322,13 @@ public class Signup extends AppCompatActivity {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if(documentSnapshot.exists()) {
+
+                    findViewById(R.id.progress).setVisibility(View.GONE);
                     Toast.makeText(Signup.this, "this Email already signed to app",
                             Toast.LENGTH_LONG).show();
                 }
                     else{
+                    findViewById(R.id.progress).setVisibility(View.GONE);
                     Toast.makeText(Signup.this, "good,can continue", Toast.LENGTH_LONG).show();
 
                     //locks the edit textsfor changes after checked
@@ -320,6 +337,7 @@ public class Signup extends AppCompatActivity {
                    //enable and color change to sign button
                     si.setVisibility(View.VISIBLE);
                     si.setEnabled(true);
+                    hebnote.setVisibility(View.GONE);
                 }
                 }
             })
@@ -333,6 +351,9 @@ public class Signup extends AppCompatActivity {
     }
 //---------------------------------------------------------------------------
     public void signup(View v){
+
+        findViewById(R.id.progress).setVisibility(View.VISIBLE);
+
         //creates the user
             Map<String, Object> user = new HashMap<>();
             user.put("Firstname", name.getText().toString());
@@ -342,6 +363,10 @@ public class Signup extends AppCompatActivity {
             user.put("Email", email.getText().toString());
             user.put("Phone", phone.getText().toString());
             user.put("Dogid", dogidd.getText().toString());
+
+      //  user.put("DateUserCreated", dogidd.getText().toString());  //Date User Created
+      //  user.put("HourUserCreated", dogidd.getText().toString());  //Hour User Created
+
 
             //add user to DB
             db.collection("Users").document(email.getText().toString())
@@ -399,7 +424,7 @@ public class Signup extends AppCompatActivity {
         SPeditor.putString("dogidSP","empty");
 
         SPeditor.commit();
-
+        findViewById(R.id.progress).setVisibility(View.GONE);
         Intent intent = new Intent(Signup.this, logIn.class);
         startActivity(intent);
         finish();
@@ -442,6 +467,49 @@ public class Signup extends AppCompatActivity {
 
 }
 
+    public void goHeb(){
 
+        hebnote.setVisibility(View.VISIBLE);
+
+        regTV.setText("הרשמה");
+        name.setHint("שם פרטי");
+        lname.setHint("שם משפחה");
+        usern.setHint("שם משתמש");
+        pass.setHint("סיסמא");
+        email.setHint("כתובת אימייל");
+        phone.setHint("מספר טלפון");
+        //-------------------------------------
+        nameTV.setText("שם פרטי");
+        lastnameTV.setText("משפחה");
+        userTV.setText("שם משתמש");
+        passTV.setText("סיסמא");
+        emailTV.setText("אימייל");
+        phoneTV.setText("מספר טלפון");
+        checkB.setText("בדוק פרטים");
+        signB.setText("אישור");
+
+    }
+
+    public void goeng(){
+
+        hebnote.setVisibility(View.GONE);
+        regTV.setText("Registration");
+        name.setHint("First name");
+        lname.setHint("Last name");
+        usern.setHint("User name");
+        pass.setHint("Password");
+        email.setHint("Email Adress");
+        phone.setHint("Phone Number");
+        //-------------------------------------
+        nameTV.setText("First name");
+        lastnameTV.setText("Last name");
+        userTV.setText("Username");
+        passTV.setText("Password");
+        emailTV.setText("Email");
+        phoneTV.setText("Phone");
+        checkB.setText("Check availability");
+        signB.setText("Sign up");
+
+    }
 
 }

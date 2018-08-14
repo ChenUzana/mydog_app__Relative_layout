@@ -3,16 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainlay"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="#b3e0ff"
+    android:background="#00DEDE"
     android:layoutDirection="ltr"
     tools:context=".TripReport"
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
+        android:id="@+id/repHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -35,7 +34,6 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:background="@drawable/buttonshape"
-            android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
             android:textSize="26sp"
             android:onClick="showTripPage"
@@ -45,12 +43,10 @@
         <Button
             android:id="@+id/foodAdd"
             android:layout_margin="10dp"
-            android:background="@drawable/buttonshape"
+            android:background="@drawable/buttonshape2"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:textSize="26sp"
-            android:layout_centerHorizontal="true"
-
             android:onClick="showFoodPage"
 
             android:text="FOOD" />
@@ -64,39 +60,59 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linchoose"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttonshape3"
+
+        android:paddingBottom="60dp"
 
         android:visibility="gone">
+
+        <TextView
+            android:id="@+id/TripHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:text="Trip Report"
+            android:textSize="24dp"
+
+            />
 
         <RadioGroup
             android:id="@+id/ChoosetripGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_below="@+id/TripHead"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/RBtrip1"
-                android:layout_width="90dp"
+
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Morning"
+                android:paddingRight="15dp"
+                android:textSize="18dp"
                 android:onClick="getTripType"/>
 
             <RadioButton
                 android:id="@+id/RBtrip2"
-                android:layout_width="90dp"
+                android:paddingRight="15dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textSize="18dp"
                 android:text="Noon"
                 android:onClick="getTripType"/>
 
             <RadioButton
                 android:id="@+id/RBtrip3"
-                android:layout_width="90dp"
+                android:paddingRight="15dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textSize="18dp"
                 android:text="Night"
                 android:onClick="getTripType"/>
 
@@ -114,11 +130,11 @@
 
             android:clickable="true"
             android:editable="false"
-
+            android:gravity="center"
             android:onClick="DateFromCalender"
 
             android:ems="10"
-            android:hint="DD-MM-YY"
+            android:hint="Trip Date"
             />
 
         <Button
@@ -129,6 +145,8 @@
             android:layout_alignBaseline="@+id/tripDate"
             android:layout_toRightOf="@+id/tripDate"
             android:onClick="setTodayDate"
+            android:background="@drawable/buttonshape5"
+            android:textSize="20dp"
 
             android:text="Today" />
 
@@ -136,15 +154,13 @@
             android:id="@+id/tripHour"
             android:layout_width="159dp"
             android:layout_height="wrap_content"
-
             android:layout_below="@id/tripDate"
-
             android:layout_marginLeft="59dp"
-
+            android:gravity="center"
             android:onClick="setHourDialog2"
 
             android:ems="10"
-            android:hint="Hour  HH:MM"
+            android:hint="Trip Hour"
             android:clickable="true"
             android:editable="false"
             />
@@ -156,8 +172,10 @@
 
             android:layout_alignBaseline="@+id/tripHour"
             android:layout_toRightOf="@+id/tripHour"
+            android:background="@drawable/buttonshape5"
 
             android:onClick="setNowTime"
+            android:textSize="20dp"
 
             android:text="Now" />
 
@@ -177,12 +195,12 @@
                 android:layout_below="@+id/tripHour"
 
 
-                app:srcCompat="@drawable/poop" />
+                app:srcCompat="@drawable/poopi3" />
 
             <CheckBox
                 android:id="@+id/kakiCB"
-                android:layout_width="94dp"
-                android:layout_height="46dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
                 android:onClick="kakiClick"
 
@@ -192,13 +210,26 @@
 
             </LinearLayout>
 
+        <EditText
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tripNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linkaka"
+            android:minWidth="290dp"
+            android:hint="special notes about the trip?"
+            />
+
+
 
         <Button
             android:id="@+id/addReport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_below="@+id/linkaka"
+            android:layout_below="@+id/tripNotes"
 
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
@@ -215,8 +246,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linchoose"
-        android:layout_marginTop="20dp"
-        android:visibility="gone">
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttonshape4"
+        android:paddingBottom="80dp"
+        android:visibility="visible">
 
 
         <TextView
@@ -225,7 +258,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Food Report"
-            android:textSize="18dp"
+            android:textSize="24dp"
 
             />
 
@@ -244,6 +277,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:paddingRight="15dp"
+                android:textSize="18dp"
                 android:onClick="getMealType2"
                 android:text="Meal1"/>
             <RadioButton
@@ -251,9 +286,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="getMealType2"
+                android:paddingRight="15dp"
+                android:textSize="18dp"
                 android:text="Meal2"/>
             <RadioButton
                 android:id="@+id/RDmeal3"
+                android:paddingRight="15dp"
+                android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="getMealType2"
@@ -271,6 +310,7 @@
 
             android:layout_marginLeft="59dp"
             android:layout_marginTop="20dp"
+            android:gravity="center"
 
             android:clickable="true"
             android:editable="false"
@@ -278,7 +318,7 @@
             android:onClick="DateFromCalender"
 
             android:ems="10"
-            android:hint="DD/MM/YY"
+            android:hint="Date"
             />
 
         <Button
@@ -289,6 +329,8 @@
             android:layout_alignBaseline="@+id/FoodDate2"
             android:layout_toRightOf="@+id/FoodDate2"
             android:onClick="setTodayDate"
+            android:background="@drawable/buttonshape22"
+            android:textSize="20dp"
 
             android:text="Today" />
 
@@ -298,6 +340,7 @@
             android:layout_height="wrap_content"
 
             android:layout_below="@id/FoodDate2"
+            android:gravity="center"
 
             android:layout_marginLeft="59dp"
 
@@ -306,7 +349,7 @@
             android:editable="false"
 
             android:ems="10"
-            android:hint="Hour  HH:MM"
+            android:hint="Hour"
              />
 
         <Button
@@ -316,6 +359,8 @@
 
             android:layout_alignBaseline="@+id/FoodHour2"
             android:layout_toRightOf="@+id/FoodHour2"
+            android:background="@drawable/buttonshape22"
+            android:textSize="20dp"
 
             android:onClick="setNowTime"
 
@@ -336,6 +381,16 @@
             android:onClick="addFoodReport"
 
             android:text="SEND" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_below="@+id/addReport2"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            />
 
 
     </RelativeLayout>

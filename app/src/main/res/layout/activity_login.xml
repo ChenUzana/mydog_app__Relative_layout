@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
+    android:background="#00DEDE"
     tools:context="com.example.myapplication.logIn"
     >
-
 
 
     <ImageView
@@ -68,13 +68,62 @@
 
         />
 
+    <TextView
+        android:layout_below="@+id/inputpass"
+        android:id="@+id/chooselang"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose language:"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+    <LinearLayout
+        android:id="@+id/languageLin"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chooselang"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        >
+
+        <ImageView
+            android:id="@+id/heblang"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/hebo"
+            android:onClick="setHebLang"
+
+            android:layout_centerHorizontal="true"
+
+            />
+
+        <ImageView
+            android:id="@+id/englang"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/engo"
+
+            android:onClick="setEngLang"
+
+            android:layout_centerHorizontal="true"
+
+            />
+
+    </LinearLayout>
+
+
+
     <Button
         android:id="@+id/loginb"
         android:layout_width="138dp"
         android:layout_height="wrap_content"
 
-        android:layout_below="@+id/inputpass"
-        android:layout_marginTop="26dp"
+        android:layout_below="@+id/languageLin"
+        android:layout_marginTop="39dp"
         android:layout_centerHorizontal="true"
 
         android:background="@drawable/edit_text_border2"
@@ -82,6 +131,19 @@
         android:onClick="login"
 
         android:text="LOG IN" />
+
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:layout_below="@+id/inputpass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:visibility="gone"
+
+        />
 
 
 
@@ -93,12 +155,13 @@
         android:layout_alignTop="@+id/loginb"
         android:layout_alignBottom="@+id/loginb"
         android:gravity="center"
+        android:layout_marginLeft="15dp"
         android:padding="5dp"
 
         android:textSize="12dp"
         android:onClick="iforgot"
 
-        android:text="Forgot \nPassword?" />
+        android:text="Forgot \nPassword" />
 
 
 
@@ -106,12 +169,12 @@
         android:id="@+id/lin1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_below="@+id/loginb"
-        android:layout_marginTop="50dp"
-
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone"
+        >
 
         <Button
             android:id="@+id/b1"
@@ -140,12 +203,13 @@
         android:id="@+id/newuserB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dp"
 
         android:layout_centerHorizontal="true"
         android:textColor="#000000"
         android:background="#FFFFFF"
         android:layout_below="@+id/loginb"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="100dp"
         android:onClick="newuser"
 
         android:text="New to MyDog ? click here" />

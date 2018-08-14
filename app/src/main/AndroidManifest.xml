@@ -3,9 +3,8 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +12,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
         <activity
             android:name=".myDogBlue"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -23,16 +23,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".takephoto" />
-        <activity android:name=".logIn" />
-        <activity android:name=".welcomeMenu" />
-        <activity android:name=".Signup" />
-        <activity android:name=".TodayReport" />
-        <activity android:name=".TripReport" />
-        <activity android:name=".DogsGarden" />
-        <activity android:name=".dogid_page" />
-        <activity android:name=".theShop" />
-        <activity android:name=".comunity"></activity>
+        <activity android:name=".takephoto" android:screenOrientation="portrait"/>
+        <activity android:name=".logIn" android:screenOrientation="portrait"/>
+        <activity android:name=".welcomeMenu" android:screenOrientation="portrait" />
+        <activity android:name=".Signup"  android:screenOrientation="portrait"/>
+        <activity android:name=".TodayReport" android:screenOrientation="portrait" />
+        <activity android:name=".TripReport"  android:screenOrientation="portrait"/>
+        <activity android:name=".DogsGarden"  android:screenOrientation="portrait"/>
+        <activity android:name=".dogid_page"  android:screenOrientation="portrait"/>
+        <activity android:name=".theShop" android:screenOrientation="portrait" />
+        <activity android:name=".comunity" android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

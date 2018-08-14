@@ -2,20 +2,20 @@ package com.example.myapplication;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
+
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioGroup;
+import android.widget.RadioButton;
+
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -24,8 +24,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
-import java.sql.Time;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -39,7 +37,7 @@ public class TripReport extends AppCompatActivity {
     int c1=0,c2=0,c3=0,c4=0;
 
     CheckBox kakoon;
-    EditText tripDate,tripHour;
+    EditText tripDate,tripHour,tNotes;
     EditText FoodDate2,FoodHour2;
 
     RelativeLayout trip;
@@ -47,7 +45,14 @@ public class TripReport extends AppCompatActivity {
     RelativeLayout mainlay;
 
     String mealNum="Meal-1";
+//---------------------
+    TextView THead,pageHead,FHead;
+    Button tripAddPageB,foodPageB,todayTripB,nowTripB,sendtripB,todayFoodB,nowFoodB,addFoodRep;
 
+    RadioButton morningT,noonT,nightT,meal1RT,meal2RT,meal3RT;
+
+
+//---------------------
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     SharedPreferences sp;
     SharedPreferences.Editor SPeditor;
@@ -66,8 +71,34 @@ public class TripReport extends AppCompatActivity {
         setContentView(R.layout.activity_trip_report);
 
         sp=getSharedPreferences("key",0);
+        SPeditor=sp.edit();
 
         myCalendar = Calendar.getInstance();
+        //-------------------------------
+        pageHead=(TextView)findViewById(R.id.repHead);
+        tripAddPageB=(Button)findViewById(R.id.tripADD);
+        THead=(TextView)findViewById(R.id.TripHead);
+        todayTripB =(Button)findViewById(R.id.todayB);
+        nowTripB=(Button)findViewById(R.id.nowB);
+        sendtripB=(Button)findViewById(R.id.addReport);
+
+        morningT=(RadioButton)findViewById(R.id.RBtrip1);
+        noonT=(RadioButton)findViewById(R.id.RBtrip2);
+        nightT=(RadioButton)findViewById(R.id.RBtrip3);
+        tNotes=(EditText)findViewById(R.id.tripNotes);
+
+        FHead=(TextView)findViewById(R.id.foodHead);
+        meal1RT=(RadioButton)findViewById(R.id.RDmeal1);
+        meal2RT=(RadioButton)findViewById(R.id.RDmeal2);
+        meal3RT=(RadioButton)findViewById(R.id.RDmeal3);
+
+
+
+        foodPageB=(Button)findViewById(R.id.foodAdd);
+        todayFoodB =(Button)findViewById(R.id.todayB2);
+        nowFoodB=(Button)findViewById(R.id.nowB2);
+        addFoodRep=(Button)findViewById(R.id.addReport2);
+
 //---------------------
         tripDate=(EditText)findViewById(R.id.tripDate);
         tripDate.setText("");
@@ -105,6 +136,9 @@ public class TripReport extends AppCompatActivity {
                 updateLabel();
             }
         };
+
+        if(sp.getString("appLang","").equals("heb")){ goHeb(); }
+        else if(sp.getString("appLang", "").equals("eng")){ goeng(); }
 
     } //end of oncreate---------------------------------------------------------
 
@@ -328,59 +362,11 @@ c4++;
 
     }
 
-    public void sendTripReportOOOO(View v){
-/*
-        if((c1>0 || c2>0) && (c3>0 || c4>0)) {
-
-            String id = sp.getString("dogidSP", "");
-            String Tdate = tripDate.getText().toString();
-
-
-            Map<String, Object> newTrip = new HashMap<>();
-            newTrip.put("tripDateTR", tripDate.getText().toString());  //date
-            newTrip.put("tripHourTR", tripHour.getText().toString());  //hour
-            newTrip.put("reporterNameTR", sp.getString("firstnameSP", ""));   // the reporter name
-            newTrip.put("dogidTR", sp.getString("dogidSP", ""));   //dogname or id
-            // newTrip.put("notesTR", email.getText().toString());     // notes by walker
-            newTrip.put("kakiTR", kakiAnswer);    //kaki
-            newTrip.put("triptypeTR", tripType);    // 1 of 3
-
-
-            db.collection("Trips").document(id).collection(Tdate)
-                    .document(tripType)
-                    .set(newTrip)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void avoid) {
-                            Toast.makeText(TripReport.this, "trip report added to db!", Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(TripReport.this, "Error adding report..contact Admin", Toast.LENGTH_LONG).show();
-
-                        }
-                    });
-
-            c1=0;
-            c2=0;
-            c3=0;
-            c4=0;
-
-            finish();
-        }
-        else{
-            Toast.makeText(TripReport.this, "date and hour missing..", Toast.LENGTH_LONG).show();
-
-        }
-*/
-    }
-
     public void addFoodReport(View v) {
 
         if ((c1 > 0 || c2 > 0) && (c3 > 0 || c4 > 0)) {
 
+            findViewById(R.id.progress).setVisibility(View.VISIBLE);
             String id = sp.getString("dogidSP", "");
 
 
@@ -438,6 +424,48 @@ c4++;
             Toast.makeText(TripReport.this, "date or hour missing..check again", Toast.LENGTH_LONG).show();
 
         }
+    }
+
+    public void goHeb(){
+
+        pageHead.setText("הוספת דיווחים");
+        tripAddPageB.setText("טיול");
+        kakoon.setText("קקי");
+
+        THead.setText("דיווח על טיול");
+        morningT.setText("בוקר");
+        noonT.setText("צהריים");
+        nightT.setText("לילה");
+
+        todayTripB.setText("היום");
+        nowTripB.setText("עכשיו");
+
+        tripDate.setHint("תאריך טיול");
+        tripHour.setHint("שעת טיול");
+
+        sendtripB.setText("שמור");
+        tNotes.setHint("הערות מיוחדות על הטיול?");
+
+//---------------------------------
+        foodPageB.setText("אוכל");
+        FHead.setText("דיווח על אוכל");
+        todayFoodB.setText("היום");
+        nowFoodB.setText("עכשיו");
+
+        meal1RT.setText("ארוחה1");
+        meal2RT.setText("ארוחה2");
+        meal3RT.setText("ארוחה3");
+
+        FoodDate2.setHint("תאריך");
+        FoodHour2.setHint("שעה");
+        addFoodRep.setText("שמור דיווח");
+    }
+
+    public void goeng(){
+
+        tripAddPageB.setText("TRIP");
+
+
     }
 
 }

@@ -12,16 +12,18 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Map;
 
 
 public class logIn extends AppCompatActivity {
@@ -31,16 +33,13 @@ public class logIn extends AppCompatActivity {
 
     int x=0;
 
-    ImageView imageView;
+    EditText userEmailET,passwordET;
+    ImageView hebimg,engimg,imageView;
 
-    EditText userEmailET;
-    EditText passwordET;
+    Button loginB,signupB;
+    TextView forgotTV,langchooseTV;
 
-    String usernameSP;
-    String nameSP;
-
-    Boolean userok=false;
-    Boolean passok=false;
+    Boolean userok=false,passok=false;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     SharedPreferences sp;
@@ -54,30 +53,37 @@ public class logIn extends AppCompatActivity {
         sp = getSharedPreferences("key", 0);
         SPeditor = sp.edit();
 
-        imageView=(ImageView)findViewById(R.id.imageView1);
+        hebimg=(ImageView)findViewById(R.id.heblang);
+        engimg=(ImageView)findViewById(R.id.englang);
+        langchooseTV=(TextView)findViewById(R.id.chooselang);
+        forgotTV=(TextView)findViewById(R.id.forgotp);
+        loginB=(Button)findViewById(R.id.loginb);
+        signupB=(Button)findViewById(R.id.newuserB);
 
+        imageView=(ImageView)findViewById(R.id.imageView1);
 //--------------------------------------------------------
         //check if user connected
         //  'NoConnectedUser' is like deleted SP
       if(sp.contains("usernameSP")) {
         if(sp.getString("usernameSP","").equals("empty")) {
-            Toast.makeText(logIn.this, "emailSP IS: " + sp.getString("emailSP", ""),
-                    Toast.LENGTH_LONG).show();
+            //Toast.makeText(logIn.this, "emailSP IS: " + sp.getString("emailSP", ""),Toast.LENGTH_LONG).show();
+            SPeditor.putString("appLang", "eng");
+            SPeditor.commit();
+            Toast.makeText(logIn.this, sp.getString("appLang",""), Toast.LENGTH_LONG).show();
         }
         else{
               updatSPfromDB();
-
               Intent intent = new Intent(logIn.this, welcomeMenu.class);
               startActivity(intent);
               finish();
 
-              Toast.makeText(logIn.this, "connected: " + sp.getString("emailSP", ""),
-                      Toast.LENGTH_LONG).show();
+             // Toast.makeText(logIn.this, "connected: " + sp.getString("emailSP", ""),Toast.LENGTH_LONG).show();
         }
       }
       else{ // this case is first time app install,sp doesnt exist
-          Toast.makeText(logIn.this, "first time use,no SP:  " + sp.getString("usernameSP", ""),
-                  Toast.LENGTH_LONG).show();
+         // Toast.makeText(logIn.this, "first time use,no SP:  " + sp.getString("usernameSP", ""), Toast.LENGTH_LONG).show();
+          SPeditor.putString("appLang", "eng");
+          SPeditor.commit();
       }
 //------------------------------------------
         userEmailET=(EditText)findViewById(R.id.inputuser);
@@ -144,10 +150,51 @@ public class logIn extends AppCompatActivity {
             }
         });
 
-
     } // end of oncreate
 
+    //-----------------------------------
+    public void setHebLang(View v) {
+        if (sp.getString("appLang","").equals("heb")) {
+            Toast.makeText(logIn.this, sp.getString("appLang",""), Toast.LENGTH_LONG).show();
+        }
+        else{
+        yoo(hebimg);
+        SPeditor.putString("appLang", "heb");
+            SPeditor.commit();
+        //-------------------------------
+        userEmailET.setHint("כתובת אימייל");yoo(userEmailET);
+        passwordET.setHint("סיסמא");yoo(passwordET);
+        langchooseTV.setText("בחר שפה:");yoo(langchooseTV);
+        loginB.setText("התחבר");yoo(loginB);
+        signupB.setText("פעם ראשונה כאן? הירשם עכשיו");yoo(signupB);
+        forgotTV.setText("שכחתי \n  מה הסיסמא");yoo(forgotTV); }
+    }
 
+    public void setEngLang(View v){
+        if (sp.getString("appLang","").equals("eng")) {
+            Toast.makeText(logIn.this, sp.getString("appLang",""), Toast.LENGTH_LONG).show();
+        }
+        else{
+        yoo(engimg);
+            SPeditor.putString("appLang", "eng");
+            SPeditor.commit();
+            yoo(forgotTV);
+        //-------------------------------
+        userEmailET.setHint("Your Email");yoo(userEmailET);
+        passwordET.setHint("Password");yoo(passwordET);
+        langchooseTV.setText("Choose language:");yoo(langchooseTV);
+        loginB.setText("LOG IN");yoo(loginB);
+        forgotTV.setText("Forgot \nPassword");yoo(forgotTV);
+        signupB.setText("New to MyDog ? click here");yoo(signupB);
+        }
+    }
+
+    public void yoo(View x){
+        YoYo.with(Techniques.FlipInX)
+                .duration(1500)
+                .playOn(x);
+    }
+//-----------------------------------
     public void iforgot(View b){
         if(userok==true ){
 
@@ -213,6 +260,11 @@ public class logIn extends AppCompatActivity {
 
     public void login(View v){
 
+       // if(lang.equals("eng")){SPeditor.putString("appLang", "eng");}
+       // else if(lang.equals("heb")){SPeditor.putString("appLang", "heb");}
+
+        findViewById(R.id.progress).setVisibility(View.VISIBLE);
+
         if(userok==true && passok==true) {
 
              //check in database if exist and match
@@ -252,10 +304,12 @@ public class logIn extends AppCompatActivity {
 
                         }else{
                             Toast.makeText(logIn.this, "password is not correct", Toast.LENGTH_LONG).show();
+                            findViewById(R.id.progress).setVisibility(View.GONE);
                         }
                     }
                     else{
                         Toast.makeText(logIn.this, "no such email registered", Toast.LENGTH_LONG).show();
+                        findViewById(R.id.progress).setVisibility(View.GONE);
 
                     }
 
@@ -270,6 +324,7 @@ public class logIn extends AppCompatActivity {
         }
         else{
             Toast.makeText(logIn.this, "user/pass-not correct format", Toast.LENGTH_LONG).show();
+            findViewById(R.id.progress).setVisibility(View.GONE);
         }
 
     }
@@ -287,8 +342,8 @@ public class logIn extends AppCompatActivity {
         }
     }
 
-
     public void newuser(View v){
+
         Intent intent = new Intent(logIn.this, Signup.class);
         startActivity(intent);
         // finish();
@@ -302,8 +357,7 @@ public class logIn extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
 
-                    Toast.makeText(logIn.this, "UPDATING FEILDS FOR USER: "+sp.getString("emailSP",""),
-                            Toast.LENGTH_LONG).show();
+                   // Toast.makeText(logIn.this, "UPDATING FEILDS FOR USER: "+sp.getString("emailSP",""), Toast.LENGTH_LONG).show();
 
                     //SP save only if the database check is true
 
@@ -336,22 +390,22 @@ public class logIn extends AppCompatActivity {
         SPeditor.putString("emailSP","empty");
         SPeditor.putString("phoneSP","empty");
         SPeditor.putString("dogidSP","empty");
-        SPeditor.commit();*/
+        SPeditor.commit();
 
         Map<String, ?> allEntries = sp.getAll();
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             Log.d("map values", entry.getKey() + ": " + entry.getValue().toString());
         }
-
+*/
+        Intent intent = new Intent(logIn.this, takephoto.class);
+        startActivity(intent);
 
     }
 
     public void menu(View v){
-
         Intent intent = new Intent(logIn.this, welcomeMenu.class);
         startActivity(intent);
         // finish();
-
     }
 
 

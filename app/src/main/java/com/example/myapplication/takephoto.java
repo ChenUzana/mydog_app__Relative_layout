@@ -39,9 +39,9 @@ public class takephoto extends AppCompatActivity {
 
 
         this.imageView = (ImageView)this.findViewById(R.id.imageView1);
+
         Button photoButton = (Button) this.findViewById(R.id.button3);
         photoButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
